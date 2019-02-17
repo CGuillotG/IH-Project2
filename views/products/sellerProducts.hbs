@@ -1,6 +1,16 @@
 <h2>Seller Products</h2>
 
-{{#each product as |product|}}
-{{this}}
-    {{this.title}}
-{{/each}}
+<div class="red">
+    {{#each products as |products|}}
+    <div class="blue">
+        <p>{{this.title}}</p>
+        <p>{{this.category}}</p>
+        <p>{{this.description}}</p>
+        <p>{{this.unitPrice}}</p>
+    </div>
+    
+    {{/each}}
+
+    <button><a href="/seller/add">ADD product</a></button>
+    <button><a href="">DELETE product</a></button>
+</div>

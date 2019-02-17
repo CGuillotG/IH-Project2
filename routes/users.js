@@ -28,7 +28,8 @@ router.get("/seller/add",(req,res,next)=>{
 
 router.post("/seller/add",(req,res,next)=>{
   Product.create(req.body)
-  .then(product => res.redirect("/seller/products"))
+  Order.create(req.body)
+  .then((product,order) => res.redirect("/seller/products"))
   .catch(e=>next(e))
 })
 
