@@ -1,13 +1,15 @@
-<h2>LogIn</h2>
+    {{#if error}}
+      <h2 style="color: red;">{{error}}</h2>
+    {{else}}
+      <h2>
+        Login
+      </h2>
+    {{/if}}
 
-
-<form action="" method="POST">
-    <input type="text" name="name" placeholder="name">
+<form action="/login" method="POST">
+    <input type="email" name="email" placeholder="Email">
     <br>
-    <input type="email" name="email">
+    <input type="password" name="password" placeholder="Password">
     <br>
-    <input type="password" name="password" placeholder="password">
-    <br>
-    <input type="password" name="password2" placeholder="password">
-    
+    <input type="submit" value="login">
 </form>

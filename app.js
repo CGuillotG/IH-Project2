@@ -4,7 +4,7 @@ let express = require("express") //Fast, unopinionated, minimalist web framework
 let session = require ("express-session") // every user of you API or website will be assigned a unique session, and this allows you to store the user state.
 let mongoose = require("mongoose") //DB
 let hbs =  require ("hbs") //views
-let passport = require ("passport") //Passport's sole purpose is to authenticate requests
+let passport = require ("./helpers/passport") //Passport's sole purpose is to authenticate requests
 let bodyParser = require ("body-parser") //Parse incoming request bodies in a middleware before your handlers, available under the req.body property.
 let cookieParser = require ("cookie-parser") //Parse Cookie header and populate req.cookies with an object keyed by the cookie names. 
 let favicon = require ("serve-favicon") //
@@ -54,7 +54,6 @@ app.use(
 
 app.set("views", path.join(__dirname,"views"))
 app.set("view engine","hbs")
-
 app.use(express.static(path.join(__dirname,"public")))
 app.use(favicon(path.join(__dirname,"public","images","favicon.ico")))
 
