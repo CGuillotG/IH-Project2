@@ -11,26 +11,37 @@ router.get('/', (req,res,next) => {
 });
 
 //BUYER
-router.get("/buyer",(req,res,next)=>{
+router.get("/buyer",(req,res,next) => {
   res.render("products/buyer")
 })
 
 //SELLER
-router.get("/seller",(req,res,next)=>{
+router.get("/seller",(req,res,next) => {
   res.render("products/seller")
 })
 
 
 //ADD PRODUCT SELLER
-router.get("/seller/add",(req,res,next)=>{
+router.get("/seller/add",(req,res,next) => {
   res.render("products/sellerAdd")
 })
 
-router.post("/seller/add",(req,res,next)=>{
+router.post("/seller/add",(req,res,next) => {
   Product.create(req.body)
-  Order.create(req.body)
-  .then((product,order) => res.redirect("/seller/products"))
+  Order.create(req.body) 
+  .then(() => res.redirect("/seller/products"))
   .catch(e=>next(e))
+})
+
+//DETAIL PRODUCT SELLER
+router.get("/seller/products/detail/:id", (req,res,next) => {
+  let {id}=req.params
+  Product.findById(id)
+  .then(product => {
+    console.log(product)
+    res.render("products/detail", product)
+  })
+  .catch(e => next(e))
 })
 
 

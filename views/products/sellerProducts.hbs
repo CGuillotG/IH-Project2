@@ -3,7 +3,8 @@
 <div class="red">
     {{#each products as |products|}}
     <div class="blue">
-        <p>{{this.title}}</p>
+        <p><a  class="test" href="/seller/products/detail/{{this._id}}">{{this.title}}</a></p>
+        <p>{{this._id}}</p>
         <p>{{this.category}}</p>
         <p>{{this.description}}</p>
         <p>{{this.unitPrice}}</p>
@@ -12,5 +13,5 @@
     {{/each}}
 
     <button><a href="/seller/add">ADD product</a></button>
-    <button><a href="">DELETE product</a></button>
+    <button><a href="/seller/products">DELETE product</a></button>
 </div>
