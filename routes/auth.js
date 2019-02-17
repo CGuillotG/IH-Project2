@@ -19,7 +19,6 @@ router.post("/signup", (req,res,next) => {
         return res.render("auth/signup", { error : "Please type the same password"})
     }
     User.register({...req.body}, req.body.password)
-    console.log(req.body.password)
     .then(()=>{
         passport.authenticate("local")(req,res, () => {
             return res.redirect("/profile")
@@ -40,7 +39,9 @@ router.post("/login", passport.authenticate("local"), (req,res,next) => {
 })
 
 router.get("/profile",isLogged,(req,res,next) => {
-    res.render("auth/profile")
+
+        res.render("auth/profile")
+    
 })
 
 router.get("/logout",(req,res,next) => {

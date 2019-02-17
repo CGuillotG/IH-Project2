@@ -3,6 +3,8 @@ let Schema = mongoose.Schema
 const PLM = require('passport-local-mongoose')
 
 let userSchema = new Schema ({
+    name:String,
+    surname:String,
     username:{
         type:String,
         required:true

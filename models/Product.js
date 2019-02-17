@@ -6,10 +6,11 @@ let productSchema = new Schema({
         type:String,
         required:true
     },
-    picURL:String,
     description:String,
     details:String,
+    category:String,
     unitPrice:Number,
+    picURL:String,
     seller:{
         type:Schema.Types.ObjectId,
         ref:"User"
