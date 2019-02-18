@@ -3,7 +3,7 @@ let Schema = moongose.Schema
 
 let orderSchema = new Schema({
     expirationDate:Date,
-    quantity:Number,
+    sellerquantity:Number,
     minQuantity:Number,
     maxQuantity:Number,
     buyerQuantity:Number,

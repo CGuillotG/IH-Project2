@@ -38,7 +38,6 @@ router.get("/seller/products/detail/:id", (req,res,next) => {
   let {id}=req.params
   Product.findById(id)
   .then(product => {
-    console.log(product)
     res.render("products/detail", product)
   })
   .catch(e => next(e))
@@ -46,6 +45,19 @@ router.get("/seller/products/detail/:id", (req,res,next) => {
 
 
 //DELETE PRODUCT SELLER
+router.get("/seller/products/detail/:id/delete",(req,res,next) => {
+  
+  let {id} = req.params
+  console.log(id)
+  Product.findByIdAndRemove(id)
+  .then(()=>{
+    res.redirect("/seller/products")
+  })
+  .catch(e => next(e))
+})
+
+
+
 
 
 //VIEW ALL PRODUCT SELLER
