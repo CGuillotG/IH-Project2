@@ -13,7 +13,7 @@ let logger = require ("morgan") //HTTP request logger middleware
 let path = require("path") //Utilities for working with file and directory paths
 
 //DB Connection
-mongoose.connect("mongodb://localhost/carlos",{useNewUrlParser:true})
+mongoose.connect(process.env.DB,{useNewUrlParser:true})
         .then(x=>console.log(`Connected to Mongo, DB:${x.connections[0].name}`))
         .catch(e=>console.log("Error connecting DB", e))
 

@@ -9,7 +9,6 @@ let userSchema = new Schema ({
         type:String,
         required:true
     },
-    password:String,
     email:String,
     picURL:{
         type:String,
