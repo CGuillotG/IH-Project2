@@ -17,7 +17,7 @@ router.get("/buyer",(req,res,next) => {
 
 //SELLER
 router.get("/seller",(req,res,next) => {
-  res.render("products/seller")
+  res.render("products/seller", req.user)
 })
 
 

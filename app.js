@@ -72,4 +72,8 @@ app.use("/",isLogged,auth)
 app.use("/",isLogged,products)
 app.use("/",isLogged,users)
 
+app.listen(process.env.PORT, () => {
+    console.log(`Listening on http://localhost:${process.env.PORT}`);
+});
+
 module.exports = app
