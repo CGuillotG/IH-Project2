@@ -1,0 +1,25 @@
+
+
+<section class="container-sellerProducts">
+    <h2>Seller Products</h2>
+    <section class="container-1-sellerProducts">
+        {{#each products}}
+        <div>
+            <p><a href="/seller/products/detail/{{this._id}}">{{this.title}}</a></p>
+            <p>{{this.category}}</p>
+            <p>{{this.unitPrice}}</p>
+        </div>
+        <div>
+            <img src={{this.picURL}} alt="{{this.title}}">
+        </div>
+        {{/each}}
+    </section>
+
+    <section class="container-2-sellerProducts">
+        <button><a href="/seller/add">ADD</a></button>
+        <button><a href="/seller/products">DELETE</a></button>
+    </section>
+</section>
+
+    
+

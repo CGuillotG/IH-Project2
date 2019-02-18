@@ -1,0 +1,38 @@
+   
+
+<section class="container-login">
+   
+  <section class="container-1-login">
+    <div>
+      {{#if error}}
+        <h2 style="color: red;">{{error}}</h2>
+      {{else}}
+        <h2>Login</h2>
+      {{/if}}
+    </div>
+    <div>
+      <form class="form-login" action="/login" method="POST">
+        <input type="email" name="email" placeholder="Email">
+        <br>
+        <input type="password" name="password" placeholder="Password">
+        <br>
+        <input type="submit" value="login">
+      </form>
+    </div>
+    
+  </section>
+
+  <section class="container-2-login">
+    <div>
+      <h3>Community</h3>
+      <p>La plataforma digital que reune gente</p>
+      <p>con la misma necesidad, para lograr un </p>
+      <p>beneficio en común.</p>
+    </div>
+   
+
+  </div>
+
+
+</section>
+
