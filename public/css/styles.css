@@ -262,8 +262,20 @@ footer {
 
 
 /*SELLERPRODUCTS*/
+.container-1-sellerProducts{
+    display: flex;
+    flex-direction: row;
+}
+
 .container-1-sellerProducts div{
     font-family: "karla";
+    margin: 10px;
+}
+
+.container-1-sellerProducts div a{
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
 }
 
 .container-2-sellerProducts button{
