@@ -1,17 +1,23 @@
-<h2>Seller Products</h2>
 
-<div class="red">
-    {{#each products as |products|}}
-    <div class="blue">
-        <p><a  class="test" href="/seller/products/detail/{{this._id}}">{{this.title}}</a></p>
-        <p>{{this._id}}</p>
-        <p>{{this.category}}</p>
-        <p>{{this.description}}</p>
-        <p>{{this.unitPrice}}</p>
-    </div>
+
+<section class="container-sellerProducts">
+    <h2>Seller Products</h2>
+    <section class="container-1-sellerProducts">
+        {{#each products}}
+        <div>
+            <p><a href="/seller/products/detail/{{this._id}}">{{this.title}}</a></p>
+            <p>{{this.category}}</p>
+            <p>{{this.unitPrice}}</p>
+            <img src={{this.picURL}} alt="{{this.title}}">
+        </div>
+        {{/each}}
+    </section>
+
+    <section class="container-2-sellerProducts">
+        <button><a href="/seller/add">ADD</a></button>
+        <button><a href="/seller/products">DELETE</a></button>
+    </section>
+</section>
+
     
-    {{/each}}
 
-    <button><a href="/seller/add">ADD product</a></button>
-    <button><a href="/seller/products">DELETE product</a></button>
-</div>

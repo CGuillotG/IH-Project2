@@ -1,12 +1,30 @@
+/*
+font-family: 'Staatliches', cursive;
+font-family: 'Karla', sans-serif;
+*/
+
+
+/*LAYOUT*/
 html,body{
     margin: 0px;
     padding: 0px;
 }
+
 nav{
+    display: flex;
+    flex-direction: row-reverse;
+    font-family: 'Staatliches';
+    font-weight: lighter;
+    background-color: rgb(138, 216, 240);
     width: 100%;
     height: 50px;
-    background-color: rgb(138, 216, 240);
     
+}
+
+nav a{
+    padding:15px;
+    text-decoration: none;
+    color:white;
 }
 
 footer {
@@ -19,6 +37,9 @@ footer {
     text-align: center;
     background-color: rgb(138, 216, 240);
  }
+/*LAYOUT*/
+
+
 
  .container-index{
     width: 100%;
@@ -27,29 +48,238 @@ footer {
     margin-top:10px;
  }
 
-a{
-    text-decoration: none;
-    color:white;
-    font-weight: bold;
-    font-size: 18px;
+
+/*LOGIN*/
+.container-login{
+ display: flex;
+ flex-direction: row;
+ justify-content:center;
+ background-color: rgb(242, 251, 255);
+ height: 300px;
+ margin:10%;
 }
 
-section{
-    border:1px solid black;
+.container-1-login{
+    display: flex;
+    flex-direction: column;
+    padding: 5%;
+    height: 198px;
 }
 
-.container-1-signup{
-
+.container-1-login div h2{
+    font-family: 'Staatliches';
+    font-weight: 200;
 }
 
-.red{
-    border:1px red solid
+.container-2-login{
+    font-family: "karla";
+    padding-left: 10px;
+    padding-top: 40px;
+    height: 94%;
+    width: 80%;
 }
 
-.blue{
-    border:1px blue solid
+.container-2-login div{
+    border-left: 2px rgb(80, 215, 248) solid;
+    padding-left: 20px;
+    height: 200px;
 }
 
-.test{
+.container-2-login div h3{
+    font-family: 'Staatliches';
+    font-weight: 200;
+}
+
+.form-login input{
+    padding:5px;
+    margin: 5px;
+}
+
+.form-login input[type=email]{
+    font-family: "karla";
+    width: 92%;
+}
+
+.form-login input[type=password]{
+    font-family: "karla";
+    width: 92%;
+}
+
+.form-login input[type=submit]{
+    font-family: "karla";
+    background-color: rgb(80, 215, 248);
+    border: 2px rgb(80, 215, 248) solid;
+    width: 100%;
+}
+/* LOGIN*/
+
+
+/*SIGNUP*/
+.container-signup{
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content:center;
+    margin:10%;
+    background-color: rgb(242, 251, 255);
+   }
+ 
+.container-signup div p{
+    font-family: "karla";
+}
+   
+.container-1-signup{    
+    display: flex;
+    flex-direction: column;
+    padding: 10% 10% 14.3% 10%;
+    width: 50%;
+    line-height: 30px;
+}
+
+.container-1-signup:nth-child(1){
+    height: 198px;
+}
+
+.container-1-signup div h2{
+    font-family: 'Staatliches';
+    font-weight: 200;
+}
+   
+.container-2-signup{
+    font-family: "karla";
+    padding-left: 10px;
+    padding-top: 100px;
+    height: 312px;
+    width: 100%;
+}
+
+.container-2-signup div{
+    border-right: 2px rgb(80, 215, 248) solid;
+    padding-left: 60px;
+    height: 250px;
+}
+
+.container-2-signup div h3{
+    font-family: 'Staatliches';
+    font-weight: 200;
+}
+
+.form-signup input{
+    padding:5px;
+    margin: 5px;
+}
+
+.form-signup input[type=text]{
+    font-family: "karla";
+    width: 55%;
+}
+
+.form-signup input[type=email]{
+    font-family: "karla";
+    width: 55%;
+}
+
+.form-signup input[type=password]{
+    font-family: "karla";
+    width: 55%;
+}
+
+.form-signup input[type=submit]{
+    font-family: "karla";
+    background-color: rgb(80, 215, 248);
+    border: 2px rgb(80, 215, 248) solid;
+    width: 58%;
+}
+/*SIGNUP*/
+
+
+
+/*PROFILE*/
+.container-2-profile button{
+    font-family: "karla";
+    background-color: rgb(80, 215, 248);
+    border: 2px rgb(80, 215, 248) solid;
+}
+
+.container-2-profile button a{
+    font-family: "karla";
     color:black;
+    font-weight: 300;
+    padding: 5%;
+    text-decoration: none;
+    font-size: 30x;
 }
+/*PROFILE*/
+
+
+
+/*SELLER*/
+.container-2-seller{
+    display: flex;
+    flex-direction: column;
+}
+
+.container-2-seller button{
+    font-family: "karla";
+    background-color: rgb(80, 215, 248);
+    margin-top: 1%;
+    border: 2px rgb(80, 215, 248) solid;
+    width: 20%;
+}
+
+.container-2-seller button a{
+    font-family: "karla";
+    color:black;
+    font-weight: 300;
+    padding: 5%;
+    text-decoration: none;
+    font-size: 30x;
+}
+/*SELLER*/
+
+
+
+/*SELLERADD*/
+.container-1-sellerAdd{
+    font-family: 'Staatliches';
+    font-weight: lighter;
+}
+
+.container-2-sellerAdd input{
+    font-family: "karla";
+    margin-top: 1%;
+    width: 20%;
+}
+
+.container-2-sellerAdd input[type=submit]{
+    font-family: "karla";
+    background-color: rgb(80, 215, 248);
+    border: 2px rgb(80, 215, 248) solid;
+    width: 20%;
+}
+/*SELLERADD*/
+
+
+
+
+/*SELLERPRODUCTS*/
+.container-1-sellerProducts div{
+    font-family: "karla";
+}
+
+.container-2-sellerProducts button{
+    font-family: "karla";
+    background-color: rgb(80, 215, 248);
+    margin-top: 1%;
+    border: 2px rgb(80, 215, 248) solid;
+    width: 20%;
+}
+
+.container-2-sellerProducts button a{
+    font-family: "karla";
+    color:black;
+    font-weight: 300;
+    padding: 5%;
+    text-decoration: none;
+    font-size: 30x;
+}
+/*SELLERPRODUCTS*/
