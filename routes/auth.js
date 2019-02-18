@@ -18,7 +18,7 @@ router.get("/signup",(req,res,next) => {
 
 router.post("/signup", (req,res,next) => {
     if(req.body.password != req.body.password2){
-        return res.render("auth/signup", { error : "Please type the same password"})
+        return res.render("auth/signup", {e})
     }
     // if(!req.body.picURL) {
     //     avatarGenerator.generate({ name: req.body.name + " " + req.body.surname, size: 64 })
