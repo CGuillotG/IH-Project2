@@ -1,5 +1,7 @@
 let router = require ("express").Router()
 let passport = require("passport")
+// let uploadCloud = require('../helpers/cloudinary')
+// const avatarGenerator = require("named-avatar-generator");
 
 let User = require("../models/User")
 
@@ -18,6 +20,11 @@ router.post("/signup", (req,res,next) => {
     if(req.body.password != req.body.password2){
         return res.render("auth/signup", { error : "Please type the same password"})
     }
+    // if(!req.body.picURL) {
+    //     avatarGenerator.generate({ name: req.body.name + " " + req.body.surname, size: 64 })
+    //     .then(avatar => avatarGenerator.writeAvatar(avatar, `./${req.body.name}${req.body.surname}-defaultavatar.jpg`))
+    //     req.body.picURL = ''
+    // }
     User.register({...req.body}, req.body.password)
     .then(()=>{
         passport.authenticate("local")(req,res, () => {
@@ -39,9 +46,7 @@ router.post("/login", passport.authenticate("local"), (req,res,next) => {
 })
 
 router.get("/profile",isLogged,(req,res,next) => {
-
         res.render("auth/profile")
-    
 })
 
 router.get("/logout",(req,res,next) => {
