@@ -1,14 +1,7 @@
-   
-
 <section class="container-login">
-   
   <section class="container-1-login">
     <div>
-      {{#if error}}
-        <h2 style="color: red;">{{error}}</h2>
-      {{else}}
-        <h2>Login</h2>
-      {{/if}}
+      <h2>Login</h2>
     </div>
     <div>
       <form class="form-login" action="/login" method="POST">
@@ -16,10 +9,16 @@
         <br>
         <input type="password" name="password" placeholder="Password">
         <br>
-        <input type="submit" value="login">
+        {{#if message }}
+          <div class="error-message">{{ error }}</div>
+        {{else}}
+          <br>
+        {{/if}}
+        <input type="submit" value="Login">
+        <br>
       </form>
+      <p class="account-message">Crear una cuenta <a href="/signup">Signup</a></p>
     </div>
-    
   </section>
 
   <section class="container-2-login">
@@ -29,10 +28,5 @@
       <p>con la misma necesidad, para lograr un </p>
       <p>beneficio en común.</p>
     </div>
-   
-
-  </div>
-
-
+  </section>
 </section>
-

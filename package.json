@@ -1,11 +1,12 @@
 {
   "name": "project2",
   "version": "1.0.0",
+  "private": true,
   "description": "Ironhack Project 2 (Week 6)",
   "main": "app.js",
   "scripts": {
-    "start": "node .bin/www",
-    "dev": "DEBUG=starter-code:* nodemon .bin/www",
+    "start": "node ./bin/www",
+    "dev": "DEBUG=test:* nodemon ./bin/www",
     "dev-windows": "nodemon ./bin/www"
   },
   "repository": {
@@ -22,7 +23,7 @@
   "dependencies": {
     "body-parser": "^1.18.3",
     "cloudinary": "^1.13.2",
-    "connect-mongo": "^2.0.3",
+    "connect-flash": "^0.1.1",
     "cookie-parser": "^1.4.4",
     "debug": "^4.1.1",
     "dotenv": "^6.2.0",
@@ -36,7 +37,6 @@
     "multer-storage-cloudinary": "^2.2.1",
     "nodemailer": "^5.1.1",
     "passport": "^0.4.0",
-    "passport-local": "^1.0.0",
     "passport-local-mongoose": "^5.0.1",
     "path": "^0.12.7",
     "paypal-rest-sdk": "^1.8.1",
