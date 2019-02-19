@@ -9,13 +9,13 @@ let passport = require ("./helpers/passport") //Passport's sole purpose is to au
 let bodyParser = require ("body-parser") //Parse incoming request bodies in a middleware before your handlers, available under the req.body property.
 let cookieParser = require ("cookie-parser") //Parse Cookie header and populate req.cookies with an object keyed by the cookie names. 
 let favicon = require ("serve-favicon") //Middleware for serving a favicon in memory thereby improving performance
+let flash = require("connect-flash"); //restore flash memory to express
 let logger = require ("morgan") //HTTP request logger middleware
 let path = require("path") //Utilities for working with file and directory paths
-let flash = require("connect-flash");
     
 //DB Connection
 mongoose.connect(process.env.DB, {useNewUrlParser: true})
-  .then(x => console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`))
+  .then(x => console.log(`Connected to Mongo! Database name: "${x.connections[0].db.databaseName}"`))
   .catch(err => console.error('Error connecting to mongo', err))
 
 //App config
