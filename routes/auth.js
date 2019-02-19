@@ -1,7 +1,6 @@
 let router = require ("express").Router()
 let passport = require("passport")
 // let uploadCloud = require('../helpers/cloudinary')
-// const avatarGenerator = require("named-avatar-generator");
 
 let User = require("../models/User")
 
@@ -42,11 +41,7 @@ router.post("/signup", (req,res,next) => {
         return res.render("auth/signup", { error: "The username already exists" });
     }
   })
-     // if(!req.body.picURL) {
-    //     avatarGenerator.generate({ name: req.body.name + " " + req.body.surname, size: 64 })
-    //     .then(avatar => avatarGenerator.writeAvatar(avatar, `./${req.body.name}${req.body.surname}-defaultavatar.jpg`))
-    //     req.body.picURL = ''
-    // }
+
   User.register({...req.body}, req.body.password)
   .then(()=>{
       passport.authenticate("local")(req,res, () => {
