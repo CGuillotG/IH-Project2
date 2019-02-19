@@ -66,6 +66,9 @@ footer {
 
 
 /*LOGIN*/
+.error-message{
+    color: red
+}
 .container-login{
  display: flex;
  flex-direction: row;
@@ -155,7 +158,7 @@ footer {
     height: 198px;
 }
 
-.container-1-signup div h2{
+.container-2-signup div h2{
     font-family: 'Staatliches';
     font-weight: 200;
 }
