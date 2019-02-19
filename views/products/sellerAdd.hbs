@@ -11,7 +11,18 @@
             <br>
             <input type="text" name="details" placeholder="Details">
             <br>
-            <input type="text" name="category" placeholder="Category">
+            <input list="category" name="category" placeholder="Category">
+                <datalist id="category">
+                    <option value="Electrónica">
+                    <option value="Celulares">
+                    <option value="Videojuegos">
+                    <option value="Farmacia">
+                    <option value="Linea Blanca">
+                    <option value="Ropa">
+                    <option value="Muebles">
+                    <option value="Vinos y Licores">
+                    <option value="Seguros">                    
+            </datalist>
             <br>
             <input type="number" name="unitPrice" placeholder="Unit Price">
             <br>
@@ -22,6 +33,8 @@
             <input type="image" name="picUrl">
             <br>
             <input type="submit" value="ADD">
+            <br>
+            <button onclick="location.href='/'"><a href="/seller/products">VIEW all Products</a></button>
         </form>
     </section>
 </section>

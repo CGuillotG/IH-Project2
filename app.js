@@ -15,7 +15,7 @@ let paypal = require("paypal-rest-sdk") //paypal pays
 
 
 //DB Connection
-mongoose.connect('mongodb://localhost/carlos',{useNewUrlParser:true})
+mongoose.connect(process.env.DB,{useNewUrlParser:true})
         .then(x=>console.log(`Connected to Mongo, DB:${x.connections[0].name}`))
         .catch(e=>console.log("Error connecting DB", e))
 
