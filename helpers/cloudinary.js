@@ -13,7 +13,7 @@ var storage = cloudinaryStorage({
   folder: 'Community-IHProject2', // The name of the folder in cloudinary
   allowedFormats: ['jpg', 'png'],
   filename: function (req, file, cb) {
-    cb(null, file.filename); // The file on cloudinary would have the same name as the original file name
+    cb(null, file.filename); //
   }
 });
 

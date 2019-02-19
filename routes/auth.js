@@ -1,9 +1,26 @@
 let router = require ("express").Router()
 let passport = require("passport")
-// let uploadCloud = require('../helpers/cloudinary')
-// const avatarGenerator = require("named-avatar-generator");
+let uploadCloud = require('../helpers/cloudinary')
+const avatarGenerator = require("named-avatar-generator");
 
 let User = require("../models/User")
+
+//smart middleware
+function defaultPic(req,res,next){
+  if(!req.body.picURL) {
+    avatarGenerator.generate({ name: "Nombre Apellido", size: 64})
+    .then(avatar => {
+      avatarGenerator.getBase64(avatar, "jpg")
+      .then(buffer => {
+        console.log(buffer)})
+      // req.file = avatar
+      // console.log("Image written")
+      // console.log(avatar)
+    })
+    
+  }
+  next()
+}
 
 function isLogged(req,res,next){
   if(req.isAuthenticated()) return next()
@@ -14,8 +31,16 @@ router.get("/profile",isLogged,(req,res,next) => {
   res.render("auth/profile")
 })
 
-router.get("/login", (req, res, next) => {
+router.get("/login", defaultPic, (req, res, next) => {
+  console.log(req.file)
   res.render("auth/login", { error: req.flash("error") });
+  // avatarGenerator.generate({ name: "Nombre Apellido", size: 64})
+  //   // .then(avatar => avatarGenerator.writeAvatar(avatar, '../public/images/default-avatar.jpg'))
+  //   .then(avatar => {
+  //     avatarGenerator.getBase64(avatar,"image/jpg")
+  //     .then(avatar64 => uploadCloud(avatar64))
+  //   })
+    // .then(avatar => uploadCloud(avatar))
 });
 
 router.post("/login", passport.authenticate("local", {
@@ -42,9 +67,9 @@ router.post("/signup", (req,res,next) => {
         return res.render("auth/signup", { error: "The username already exists" });
     }
   })
-     // if(!req.body.picURL) {
-    //     avatarGenerator.generate({ name: req.body.name + " " + req.body.surname, size: 64 })
-    //     .then(avatar => avatarGenerator.writeAvatar(avatar, `./${req.body.name}${req.body.surname}-defaultavatar.jpg`))
+    //  if(!req.body.picURL) {
+    //     avatarGenerator.generate({ name: "Nombre Apellido"})
+    //     .then(avatar => uploadCloud(avatar))
     //     req.body.picURL = ''
     // }
   User.register({...req.body}, req.body.password)
