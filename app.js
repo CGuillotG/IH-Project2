@@ -11,9 +11,11 @@ let cookieParser = require ("cookie-parser") //Parse Cookie header and populate 
 let favicon = require ("serve-favicon") //Middleware for serving a favicon in memory thereby improving performance
 let logger = require ("morgan") //HTTP request logger middleware
 let path = require("path") //Utilities for working with file and directory paths
+let paypal = require("paypal-rest-sdk") //paypal pays
+
 
 //DB Connection
-mongoose.connect(process.env.DB,{useNewUrlParser:true})
+mongoose.connect('mongodb://localhost/carlos',{useNewUrlParser:true})
         .then(x=>console.log(`Connected to Mongo, DB:${x.connections[0].name}`))
         .catch(e=>console.log("Error connecting DB", e))
 
@@ -35,6 +37,14 @@ app.use(
 //Passport Setup
 app.use(passport.initialize())
 app.use(passport.session())
+
+//PayPal Setup
+paypal.configure({
+    "mode":"sandbox",
+    "client_id":process.env.PAYPAL_ID,
+    "client_secret":process.env.PAYPAL_SECRET
+})
+
 
 //Middleware Setup
 app.use(logger("dev"))
@@ -67,10 +77,12 @@ let index = require ("./routes/index")
 let auth = require ("./routes/auth")
 let products = require ("./routes/products")
 let users = require ("./routes/users")
+let Paypal = require ("./routes/paypal")
 app.use("/",isLogged,index)
 app.use("/",isLogged,auth)
 app.use("/",isLogged,products)
 app.use("/",isLogged,users)
+app.use("/",isLogged,Paypal)
 
 app.listen(process.env.PORT, () => {
     console.log(`Listening on http://localhost:${process.env.PORT}`);

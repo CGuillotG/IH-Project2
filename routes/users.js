@@ -3,10 +3,11 @@ let router  = express.Router();
 let Product = require ("../models/Product")
 let User = require ("../models/User")
 let Order = require("../models/Order")
+let paypal = require("paypal-rest-sdk")
 
 
 /* GET home page */
-router.get('/', (req,res,next) => {
+router.get('/',(req,res,next) => {
   res.render('index');
 });
 
@@ -34,7 +35,7 @@ router.post("/seller/add",(req,res,next) => {
 })
 
 //DETAIL PRODUCT SELLER
-router.get("/seller/products/detail/:id", (req,res,next) => {
+router.get("/seller/products/detail/:id",(req,res,next) => {
   let {id}=req.params
   Product.findById(id)
   .then(product => {
@@ -42,7 +43,6 @@ router.get("/seller/products/detail/:id", (req,res,next) => {
   })
   .catch(e => next(e))
 })
-
 
 //DELETE PRODUCT SELLER
 router.get("/seller/products/detail/:id/delete",(req,res,next) => {
@@ -55,10 +55,6 @@ router.get("/seller/products/detail/:id/delete",(req,res,next) => {
   })
   .catch(e => next(e))
 })
-
-
-
-
 
 //VIEW ALL PRODUCT SELLER
 router.get("/seller/products",(req,res,next)=>{

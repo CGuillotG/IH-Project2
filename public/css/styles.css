@@ -311,3 +311,80 @@ footer {
     font-size: 30x;
 }
 /*SELLERPRODUCTS*/
+
+
+/*BUYERPRODUCTS*/
+.container-buyer{
+    font-family: "karla";
+    margin-left: 5%;   
+}
+
+.container-buyer h2{
+    font-family: 'Staatliches';
+    font-weight: 200;
+}
+
+.container-buyer div div p{
+    margin:10px;
+}
+
+.container-buyer div div p a{
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}
+
+.container-1-buyer div{
+    margin: 10px;
+}
+
+.container-1-buyer div{
+    margin: 10px;
+}
+
+.container-1-buyer div div img{
+    padding-top: 16%;
+}
+/*BUYERPRODUCTS*/
+
+
+/*BUYERDETAIL*/
+.container-buyerDetail{
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(242, 251, 255);
+    border:2px rgb(80, 215, 248) solid;
+    padding: 1% 5% 5% 5%;
+    margin-left: 30%;
+    margin-top: 5%;
+    margin-right: 30%;
+}
+
+.container-buyerDetail h2{
+    font-family: 'Staatliches';
+    font-weight: 200;
+}
+.container-1-buyerDetail{
+    font-family: "karla";
+}
+
+.container-2-buyerDetail{
+    font-family: "karla";
+    text-align: center;
+}
+
+.container-2-buyerDetail input{
+    display: flex;
+    flex-direction: column;
+    font-family: "karla";
+    width: 50%;
+}
+
+.container-2-buyerDetail input[type=submit]{
+    font-family: "karla";
+    background-color: rgb(80, 215, 248);
+    border: 2px rgb(80, 215, 248) solid;
+    width: 52%;
+}
+
+/*BUYERDETAIL*/

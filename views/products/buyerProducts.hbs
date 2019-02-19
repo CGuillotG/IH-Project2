@@ -1,14 +1,23 @@
 <section class="container-buyer">
+    <h2>ALL PRODUCTS</h2>
     <section class="container-1-buyer">
         {{#each products}}
         <div>
-            <a href="/buyer/buyerproducts/detail/{{id}}">{{this.title}}</a>
-            
+            <div>
+                <p><a href="/buyer/buyerproducts/detail/{{id}}">{{this.title}}</a></p>
+                <p>{{this.description}}</p>
+                <p>{{this.unitPrice}}</p>
+            </div>
+            <div>
+                <img src="#" alt="{{this.title}}">
+            </div>
         </div>
         {{/each}}
     </section>
     <section class="container-2-buyer">
-        
+        fdfd
     </section>
 
 </section>
+
+
