@@ -7,9 +7,14 @@ let userSchema = new Schema ({
     surname:String,
     username:{
         type:String,
-        required:true
+        required:true,
+        unique:true
     },
-    email:String,
+    email:{
+        type:String,
+        required:true,
+        unique:true
+    },
     picURL:{
         type:String,
         default:"https://res.cloudinary.com/cgui1107/image/upload/v1550515432/Community-IHProject2/DefaultProfilePic.jpg",
