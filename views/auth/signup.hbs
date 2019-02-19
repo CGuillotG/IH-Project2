@@ -1,38 +1,38 @@
-
-
 <section class="container-signup">
-    <section class="container-1-signup">
-        <div>
-            {{#if e}}
-                <h2 style="color: red;">{{error}}</h2>
-            {{else}}
-                <h2>Sign Up</h2>
-            {{/if}}
-            <h3>Community</h3>
-            <p>
-                La plataforma digital que reune gente con
-                la misma necesidad, para lograr un beneficio
-                en común.
-            </p>
-        </div>
-        
-    </section>
+  <section class="container-1-signup">
+    <div>
+      <h3>Community</h3>
+      <p>
+        La plataforma digital que reune gente con
+        la misma necesidad, para lograr un beneficio
+        en común.
+      </p>
+    </div>
+
+  </section>
 
 
-    <section class="container-2-signup">
-        <div>
-            <form class="form-signup" action="/signup" method="POST">
-                <input type="text" name="username" placeholder="username">
-                <br>
-                <input type="email" name="email" placeholder="email">
-                <br>
-                <input type="password" name="password" placeholder="password">
-                <br>
-                <input type="password" name="password2" placeholder="password">
-                <br>
-                <input type="submit" value="Create account">   
-            </form>
-        </div>
-    </section>
+  <section class="container-2-signup">
+    <div>
+      <h2>Sign Up</h2>
+      <form class="form-signup" action="/signup" method="POST">
+        <input type="text" name="username" placeholder="username">
+        <br>
+        <input type="email" name="email" placeholder="email">
+        <br>
+        <input type="password" name="password" placeholder="password">
+        <br>
+        <input type="password" name="password2" placeholder="password">
+        {{#if message }}
+        <div class="error-message">{{ error }}</div>
+        {{else}}
+        <br>
+        {{/if}}
+        <br>
+        <input type="submit" value="Create account">
+      </form>
+      <p class="account-message">Crear una cuenta <a href="/signup">Signup</a></p>
+    </div>
+  </section>
 
 </section>
