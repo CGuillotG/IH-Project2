@@ -12,7 +12,7 @@ let userSchema = new Schema ({
     email:String,
     picURL:{
         type:String,
-        default:"", //Agregar URL defaul
+        default:"https://res.cloudinary.com/cgui1107/image/upload/v1550515432/Community-IHProject2/DefaultProfilePic.jpg",
     },
     ratingSeller:Number,
     ratingBuyer:Number,
