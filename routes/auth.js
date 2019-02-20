@@ -4,12 +4,6 @@ let uploadCloud = require('../helpers/cloudinary')
 let User = require("../models/User")
 let {isLogged} = require('../helpers/middlewares')
 
-//Middleware Authentication
-// function isLogged(req,res,next){
-//   if(req.isAuthenticated()) return next()
-//   return res.redirect("/login")
-// }
-
 //Profile
 router.get("/profile",isLogged,(req,res,next) => {
   res.render("auth/profile")
