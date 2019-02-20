@@ -4,13 +4,15 @@ let Product = require ("../models/Product")
 let User = require ("../models/User")
 let Order = require("../models/Order")
 let Paypal = require("paypal-rest-sdk") 
+let {isLogged} = require('../helpers/middlewares')
+let {isSeller} = require('../helpers/middlewares')
 
 //PAYPAL
-router.get("/buyer/paypal", (req, res) => {
+router.get("/buyer/paypal", isLogged, (req, res) => {
   res.send('Autorizando')
 })
 
-router.post("/buyer/paypal",(req,res,next) => {
+router.post("/buyer/paypal", isLogged, (req,res,next) => {
   Product.findById(req.body.id)
     .then(product => {
       let total = (product.unitPrice*req.body.buyerQuantity)
@@ -60,7 +62,7 @@ router.post("/buyer/paypal",(req,res,next) => {
     })
   
   
-  router.get("/buyer/paypal/success", (req,res,next) => {
+  router.get("/buyer/paypal/success", isLogged, (req,res,next) => {
     let payerId = req.query.PayerID
     let paymentId = req.query.paymentId
   
