@@ -39,7 +39,7 @@ router.get("/signup", (req, res, next) => {
   res.render("auth/signup");
 });
 
-router.post("/signup", uploadCloud.single('picUrl'),(req,res,next) => {
+router.post("/signup", uploadCloud.single('picURL'), (req,res,next) => {
   if (req.body.username === "" || req.body.password === ""|| req.body.email === "") {
       res.render("auth/signup", { error: "Indicate username, email and password" });
       return;
@@ -47,9 +47,8 @@ router.post("/signup", uploadCloud.single('picUrl'),(req,res,next) => {
   if(req.body.password != req.body.password2){
       return res.render("auth/signup", {error: "Password doesn't match"})
   }
-  if(req.files) {
-    req.body.picUrl = req.files.picUrl[0].url
-    console.log(req.body.picUrl)
+  if(req.file) {
+    req.body.picURL = req.file.secure_url
   }
   User.register({...req.body}, req.body.password)
   .then(()=>{
