@@ -67,7 +67,8 @@ footer {
 
 /*LOGIN*/
 .error-message{
-    color: red
+    color: red;
+    text-align: center;
 }
 .container-login{
  display: flex;
