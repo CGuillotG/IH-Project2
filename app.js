@@ -65,8 +65,8 @@ hbs.registerHelper('ifUndefined', (value, options) => {
 app.locals.title = 'Express - Generated with IronGenerator';
 app.locals.loggedUser = false
 
-//Logged In Check Middleware
-function isLogged(req,res,next){
+//Logged In Local Var Middleware
+function isLoggedUser(req,res,next){
     if(req.isAuthenticated()){
         app.locals.loggedUser=true
         next()
@@ -81,9 +81,9 @@ let index = require ("./routes/index")
 let auth = require ("./routes/auth")
 let products = require ("./routes/products")
 let users = require("./routes/users")
-app.use("/",isLogged,index)
-app.use("/",isLogged,auth)
-app.use("/",isLogged,products)
-app.use("/",isLogged,users)
+app.use("/",isLoggedUser,index)
+app.use("/",isLoggedUser,auth)
+app.use("/",isLoggedUser,products)
+app.use("/",isLoggedUser,users)
       
 module.exports = app;
