@@ -44,6 +44,7 @@ app.use(cookieParser());
 
 //Views Config
 app.set('views', path.join(__dirname, 'views'));
+hbs.registerPartials(__dirname + "/views/partials");
 app.set('view engine', 'hbs');
 
 //Public Setup
