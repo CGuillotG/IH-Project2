@@ -10,7 +10,10 @@ let productSchema = new Schema({
     details:String,
     category:String,
     unitPrice:Number,
-    picURL:String,
+    picURL:{
+        type:String,
+        default:"https://res.cloudinary.com/cgui1107/image/upload/v1550696064/Community-IHProject2/DefaultProductPic.png"
+    },
     seller:{
         type:Schema.Types.ObjectId,
         ref:"User"

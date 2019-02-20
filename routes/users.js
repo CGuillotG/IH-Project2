@@ -4,7 +4,7 @@ let Product = require ("../models/Product")
 let User = require ("../models/User")
 let Order = require("../models/Order")
 let paypal = require("paypal-rest-sdk")
-
+let uploadCloud = require('../helpers/cloudinary')
 let {isLogged} = require('../helpers/middlewares')
 let {isSeller} = require('../helpers/middlewares')
 
@@ -25,7 +25,10 @@ router.get("/seller/add", isLogged, isSeller, (req,res,next) => {
   res.render("seller/sellerAdd")
 })
 
-router.post("/seller/add", isLogged, isSeller, (req,res,next) => {
+router.post("/seller/add", isLogged, isSeller, uploadCloud.single('picURL'), (req,res,next) => {
+  if(req.file) {
+    req.body.picURL = req.file.secure_url
+  }
   req.body.seller = req.user._id
   Order.create(req.body)
   .then(order=> {
