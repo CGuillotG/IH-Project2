@@ -3,7 +3,8 @@ exports.isLogged = (req,res,next) => {
     return res.redirect("/login")
   }
 
-exports.isSeller = (isSeller) => (req,res,next) => {
+exports.isSeller = (req,res,next) => {
     if(req.user.isSeller) next()
-    else res.send("Tu no eres " + role)
+    else res.send("Become a seller")
+    // else res.redirect('/becomeSeller')
 }

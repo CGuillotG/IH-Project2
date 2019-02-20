@@ -32,6 +32,15 @@ nav a:hover{
     color:black;
 }
 
+#navProf{
+    padding:10px;
+}
+
+nav img{
+    border-radius: 50%;
+    height:30px;
+}
+
 footer {
     width: 100%;
     height: 50px;
@@ -44,6 +53,46 @@ footer {
  }
 /*LAYOUT*/
 
+/*LEFTNAVBAR*/
+.containerforleftbar {
+    display:flex;
+}
+
+.leftnavbar{
+    font-family: 'Staatliches';
+    font-weight: lighter;
+    border-right: 2px rgb(173, 224, 240) solid;
+    height:calc(100vh - 100px);
+    width:5vw;
+    min-width: 80px;
+    display: flex;
+    flex-flow: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.leftnavbar a{
+    text-align: center; 
+    text-decoration: none;
+    color:rgb(112, 202, 230);
+}
+
+.leftnavbar div{
+    width:100%;
+    padding:15px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.leftnavbar .selected{
+    background-color:rgb(112, 202, 230);
+}
+
+.leftnavbar .selected a{
+    color:white
+}
+/*LEFTNAVBAR*/
 
 
 
@@ -275,6 +324,10 @@ footer {
 
 
 /*SELLER*/
+
+.container-seller{
+    width:auto
+}
 .container-2-seller{
     display: flex;
     flex-direction: column;

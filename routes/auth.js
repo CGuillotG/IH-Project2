@@ -6,7 +6,7 @@ let {isLogged} = require('../helpers/middlewares')
 
 //Profile
 router.get("/profile",isLogged,(req,res,next) => {
-  res.render("auth/profile")
+  res.render("auth/profile", req.user)
 })
 
 router.get("/profile/edit",isLogged,(req,res,next) => {
@@ -17,6 +17,12 @@ router.post("/profile/edit",isLogged,(req,res,next) => {
   
 })
 
+//Dasboard redirect
+router.get("/dash", isLogged, (req, res, next) => {
+  if (req.user.isSeller) res.redirect("/seller")
+  else res.redirect("/buyer")
+})
+
 //Log In
 router.get("/login", (req, res, next) => {
   let error = req.flash("error")[0]
@@ -24,7 +30,7 @@ router.get("/login", (req, res, next) => {
 });
 
 router.post("/login", passport.authenticate("local", {
-  successRedirect: "/profile",
+  successRedirect: "/dash",
   failureRedirect: "/login",
   failureFlash: true,
   passReqToCallback: true

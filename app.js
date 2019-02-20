@@ -53,6 +53,7 @@ app.use(cookieParser());
 
 //Views Config
 app.set('views', path.join(__dirname, 'views'));
+hbs.registerPartials(__dirname + "/views/partials");
 app.set('view engine', 'hbs');
 
 //Public Setup
@@ -78,6 +79,7 @@ app.locals.loggedUser = false
 function isLoggedUser(req,res,next){
     if(req.isAuthenticated()){
         app.locals.loggedUser=true
+        app.locals.loggedUserPic=req.user.picURL
         next()
     } else {
         app.locals.loggedUser=false
