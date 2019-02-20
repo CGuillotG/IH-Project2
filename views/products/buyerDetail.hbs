@@ -6,15 +6,18 @@
         <p><strong>Detail : </strong>{{details}}</p>
         <p><strong>category : </strong> {{category}}</p>
         <p><strong>Price : </strong> {{unitPrice}}</p>
-        <img src={{picURL}} alt={{this.title}}/>
+        <img src="{{picURL}}" alt="{{this.title}}"/>
 
     </section>
 
     <section class="container-2-buyerDetail">
             <form action="/buyer/paypal" method="POST"> 
             <p><strong>Cuantas unidades quieres adquirir</strong></p>
-            <input type="number" min={{minQuantity}} name="buyerQuantity" placeholder="Unidades">
+            <input type="number" min="0" name="buyerQuantity" placeholder="Unidades">
             <br>
+            <input type="hidden" name="{{title}}">
+            <br>
+            <input type="hidden" name="{{unitPrice}}">
             <input type="submit" value="Pagar">
             </form>
     </section>
