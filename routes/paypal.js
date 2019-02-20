@@ -7,7 +7,7 @@ let Paypal = require("paypal-rest-sdk")
 
 
 //PAYPAL
-router.post("/buyer/paypal",(req,res,next) => {
+router.post("/buyer/paypall",(req,res,next) => {
     let create_payment_json = {
       "intent": "sale",
       "payer": {
@@ -36,7 +36,7 @@ router.post("/buyer/paypal",(req,res,next) => {
   };
   
   
-    Paypal.payment.create(create_payment_json, function (error, payment) {
+    /*Paypal.payment.create(create_payment_json, function (error, payment) {
       if (error) {
           throw error;
       } else {
@@ -46,7 +46,22 @@ router.post("/buyer/paypal",(req,res,next) => {
           }
       }
     });
-  
+  */
+ Paypal.payment.create(create_payment_json, function (error, payment) {
+  if (error) {
+      throw error;
+  } else {
+      for(let i=0; i<payment.links.length; i++){
+        if(payment.links[i].rel === "approval_url")
+        res.get("buyer/paypall", (req,res,next) => {
+          console.log(req.body)
+        })
+        
+      }
+  }
+});
+
+
   
   })
   
@@ -78,6 +93,7 @@ router.post("/buyer/paypal",(req,res,next) => {
   router.get("/buyer/paypal/cancel",(req,res,next) => {
     res.send("cancelled")
   })
+
 
 
 
