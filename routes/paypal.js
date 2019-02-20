@@ -6,8 +6,12 @@ let Order = require("../models/Order")
 let Paypal = require("paypal-rest-sdk") 
 
 //PAYPAL
+router.get("/buyer/paypal", (req, res) => {
+  res.send('Autorizando')
+})
+
 router.post("/buyer/paypal",(req,res,next) => {
-  Product.find({id: req.body.title})
+  Product.findById(req.body.id)
     .then(product => {
       let total = (product.unitPrice*req.body.buyerQuantity)
       let create_payment_json = {
@@ -64,17 +68,17 @@ router.post("/buyer/paypal",(req,res,next) => {
       "payer_id":payerId,
       "transactions":[{
         "amount":{
-          "currency":"USD",
-          "total":"25"
+          "currency":"MXN",
+          "total":payerId.total
         }
       }]
     }
   
     Paypal.payment.execute(paymentId,execute_payment_json,function(error,payment){
-      if(error){
+      if(!error){
         throw error
       } else {
-        res.send("Success")
+        res.redirect("/buyer/orders")
       }
   
     })

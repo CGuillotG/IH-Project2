@@ -1,21 +1,22 @@
-<section class="container-buyer">
-    <h2>ALL PRODUCTS</h2>
-    <section class="container-1-buyer">
-        {{#each products}}
-        <div>
+<section class="containerforleftbar">
+  {{>leftnavbuyer}}
+    <section class="container-buyer">
+        <h2>ALL PRODUCTS</h2>
+        <section class="container-1-buyer">
+            {{#each products}}
             <div>
-                <p>Producto : <a href="/buyer/buyerproducts/detail/{{id}}">{{this.title}}</a></p>
-                <p>Descripción : {{this.description}}</p>
-                <p>Precio : {{this.unitPrice}} MXN</p>
+                <div>
+                    <p>Producto : <a href="/buyer/buyerproducts/detail/{{id}}">{{this.title}}</a></p>
+                    <p>Descripción : {{this.description}}</p>
+                    <p>Precio : {{this.unitPrice}} MXN</p>
+                </div>
+                <div>
+                    <img src="#" alt="{{this.title}}">
+                </div>
             </div>
-            <div>
-                <img src="#" alt="{{this.title}}">
-            </div>
-        </div>
-        {{/each}}
+            {{/each}}
+        </section>
     </section>
-
-
 </section>
 
 

@@ -15,9 +15,10 @@
             <p><strong>Cuantas unidades quieres adquirir</strong></p>
             <input type="number" min="0" name="buyerQuantity" placeholder="Unidades">
             <br>
-            <input type="hidden" name="{{title}}">
+            <input type="hidden" name="title" value="{{title}}">
             <br>
-            <input type="hidden" name="{{unitPrice}}">
+            <input type="hidden" name="unitPrice" value="{{unitPrice}}">
+            <input type="hidden" name="id" value="{{_id}}">
             <input type="submit" value="Pagar">
             </form>
     </section>

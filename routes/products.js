@@ -14,7 +14,7 @@ router.get("/buyer/buyerproducts",(req,res,next) => {
 router.get("/buyer/buyerproducts/detail/:id", (req,res,next) =>{
   let {id}=req.params
   Product.findById(id)
-  .then((product)=>{
+  .then(product=>{
     res.render("products/buyerDetail",product)
   })
   .catch(e => next(e))

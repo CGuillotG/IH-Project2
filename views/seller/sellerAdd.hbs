@@ -1,43 +1,46 @@
-<section class="container-sellerAdd">
-    <section class="container-1-sellerAdd">
-        <h2>Products</h2>
-    </section>
 
-    <section class="container-2-sellerAdd">
-        <form action="/seller/add" method="POST">
-            <input type="text" name="title" placeholder="Title">
-            <br>
-            <input type="text" name="description" placeholder="Description">
-            <br>
-            <input type="text" name="details" placeholder="Details">
-            <br>
-            <input list="category" name="category" placeholder="Category">
-                <datalist id="category">
-                    <option value="Electrónica">
-                    <option value="Celulares">
-                    <option value="Videojuegos">
-                    <option value="Farmacia">
-                    <option value="Linea Blanca">
-                    <option value="Ropa">
-                    <option value="Muebles">
-                    <option value="Vinos y Licores">
-                    <option value="Seguros">                    
-            </datalist>
-            <br>
-            <input type="number" name="unitPrice" placeholder="Unit Price">
-            <br>
-            <input type="number" name="minQuantity" min="" placeholder="Min Quantity">
-            <br>
-            <input type="number" name="maxQuantity" max="" placeholder="Max Quantity">
-            <br>
-            <input type="image" name="picUrl">
-            <br>
-            <input type="submit" value="ADD">
-            <br>
-            <button><a href="/seller/products">VIEW all Products</a></button>
-        </form>
+<section class="containerforleftbar">
+    {{>leftnavseller}}
+    <section class="container-sellerAdd">    
+        <section class="container-1-sellerAdd">
+            <h2>Products</h2>
+        </section>
+
+        <section class="container-2-sellerAdd">
+            <form action="/seller/add" method="POST">
+                <input type="text" name="title" placeholder="Title">
+                <br>
+                <input type="text" name="description" placeholder="Description">
+                <br>
+                <input type="text" name="details" placeholder="Details">
+                <br>
+                <input list="category" name="category" placeholder="Category">
+                    <datalist id="category">
+                        <option value="Electrónica">
+                        <option value="Celulares">
+                        <option value="Videojuegos">
+                        <option value="Farmacia">
+                        <option value="Linea Blanca">
+                        <option value="Ropa">
+                        <option value="Muebles">
+                        <option value="Vinos y Licores">
+                        <option value="Seguros">                    
+                </datalist>
+                <br>
+                <input type="number" name="unitPrice" placeholder="Unit Price">
+                <br>
+                <input type="number" name="minQuantity" min="" placeholder="Min Quantity">
+                <br>
+                <input type="number" name="maxQuantity" max="" placeholder="Max Quantity">
+                <br>
+                <input type="image" name="picUrl">
+                <br>
+                <input type="submit" value="ADD">
+                <br>
+                <button><a href="/seller/products">VIEW all Products</a></button>
+            </form>
+        </section>
     </section>
 </section>
-
 
 
