@@ -15,7 +15,7 @@ let productSchema = new Schema({
         type:Schema.Types.ObjectId,
         ref:"User"
     },
-    orders:{
+    order:{
         type:Schema.Types.ObjectId,
         ref:"Order"
     },

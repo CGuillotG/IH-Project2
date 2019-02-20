@@ -177,7 +177,6 @@ footer {
 
 .form-login input:hover{
     border: 1px rgb(80, 215, 248) solid;
-    font-size: 15px;
 }
 
 .form-login input[type=submit]{
@@ -408,9 +407,9 @@ footer {
     margin-right: 1%;
 }
 
-.container-1-sellerProducts > div:hover{
+/* .container-1-sellerProducts > div:hover{
     border: 3.5px rgb(80, 215, 248) solid;
-}
+} */
 
 .container-1-sellerProducts div a{
     text-decoration: none;
@@ -419,7 +418,6 @@ footer {
 }
 
 .container-1-sellerProducts div a:hover{
-    font-size:20px;
     color: rgb(0, 204, 255);
 }
 
@@ -483,7 +481,6 @@ footer {
 
 .container-2-sellerAdd input:hover{
     border: 1px rgb(80, 215, 248) solid;
-    font-size: 15px;
 }
 
 .container-2-sellerAdd input[type=submit]{
@@ -606,7 +603,6 @@ footer {
 }
 
 .container-buyer div div p a:hover{
-    font-size:20px;
     color: rgb(0, 204, 255);
 }
 
@@ -672,7 +668,6 @@ footer {
 
 .container-2-buyerDetail input:hover{
     border: 1px rgb(80, 215, 248) solid;
-    font-size: 15px;
 }
 
 .container-2-buyerDetail input[type=submit]{

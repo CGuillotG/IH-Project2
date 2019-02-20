@@ -2,19 +2,21 @@ let moongose = require("mongoose")
 let Schema = moongose.Schema
 
 let orderSchema = new Schema({
+    isActive:{
+        type:Boolean,
+        default:true,
+    },
+    startDate:Date,
     expirationDate:Date,
-    sellerquantity:Number,
     minQuantity:Number,
     maxQuantity:Number,
-    buyerQuantity:Number,
     buyers:[{
-        type:Schema.Types.ObjectId,
-        ref:"User"
-    }],
-    seller:{
-        type:Schema.Types.ObjectId,
-        ref:"User"
-    },
+        buyer:{
+            type:Schema.Types.ObjectId,
+            ref:"User"
+        },
+        buyerQuantity:Number,
+    }]
 
 },{timestamps:true,versionKey:false})
 

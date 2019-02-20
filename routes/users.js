@@ -26,10 +26,15 @@ router.get("/seller/add", isLogged, isSeller, (req,res,next) => {
 })
 
 router.post("/seller/add", isLogged, isSeller, (req,res,next) => {
-  Product.create(req.body)
-  Order.create(req.body) 
-  .then(() => res.redirect("/seller/products"))
+  req.body.seller = req.user._id
+  Order.create(req.body)
+  .then(order=> {
+    req.body.order = order._id
+    Product.create(req.body)
+    .then(() => res.redirect("/seller/products"))
+  })
   .catch(e=>next(e))
+  
 })
 
 //DETAIL PRODUCT SELLER
