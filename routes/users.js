@@ -5,11 +5,6 @@ let User = require ("../models/User")
 let Order = require("../models/Order")
 
 
-/* GET home page */
-router.get('/', (req,res,next) => {
-  res.render('index');
-});
-
 //BUYER
 router.get("/buyer",(req,res,next) => {
   res.render("products/buyer")
