@@ -13,6 +13,7 @@ let flash = require("connect-flash"); //restore flash memory to express
 let logger = require ("morgan") //HTTP request logger middleware
 let path = require("path") //Utilities for working with file and directory paths
 let paypalsdk = require("paypal-rest-sdk") //paypal pays
+let MongoStore = require("connect-mongo")(session);
 
     
 //DB Connection
