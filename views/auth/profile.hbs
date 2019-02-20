@@ -3,11 +3,32 @@
     <section class="container-profile">
         <section class="container-1-profile">
             <h2>Profile</h2>
+            <img style="width:300px; border-radius:50%" src="{{picURL}}" alt="Profile Pic">
         </section>
 
         <section class="container-2-profile">
-            <h4>{{username}}</h4>
-            <img style="width:300px; border-radius:50%" src="{{picURL}}" alt="Profile Pic">
+            <p><strong>Name: </strong>{{name}}</p>
+            <p><strong>Last Name: </strong>{{surname}}</p>
+            <p><strong>Username: </strong>{{username}}</p>
+            <p><strong>Email: </strong>{{email}}</p>
+            <p><strong>Buyer Rating: </strong>{{ratingBuyer}}</p>  
+            {{#if isSeller}}
+                <p><strong>Seller Rating: </strong>{{ratingSeller}}</p> 
+            {{/if}}
+            <br>
+            <p><strong>Address:</strong></p>  
+            <p><strong>Street:</strong>{{address.street}}</p>  
+            <p><strong>Ext Num:</strong>{{address.extNumber}}</p>  
+            <p><strong>Int Num:</strong>{{address.intNumber}}</p> 
+            <p><strong>Town:</strong>{{address.municipio}}</p>  
+            <p><strong>State:</strong>{{address.state}}</p>  
+            <p><strong>Zip Code:</strong>{{address.postalcode}}</p>
+            <br> 
+            <p><strong>Payment:</strong></p>  
+            <p><strong>Card Number:</strong>{{payment.numberCardMasked}}</p> 
+            <p><strong>Exp Month:</strong>{{payment.month}}</p>
+            <p><strong>Exp Year:</strong>{{payment.year}}</p>
+            <a href="/profile/edit"><button>Edit Profile</button></a>
         </section>
     </section>
 </section>
