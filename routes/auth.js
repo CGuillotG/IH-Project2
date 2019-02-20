@@ -13,12 +13,11 @@ router.get("/profile/edit",isLogged,(req,res,next) => {
   res.render("auth/profileedit", req.user)
 })
 
-router.post("/profile/edit",isLogged, /*uploadCloud.single('picURL'),*/ (req,res,next) => {
-  // if(req.file) {
-  //   req.body.picURL = req.file.secure_url
-  // }
- 
-  console.log("CardNum - " + req.body.cardNum)
+router.post("/profile/edit",isLogged, uploadCloud.single('picURL'), (req,res,next) => {
+  if(req.file) {
+    req.body.picURL = req.file.secure_url
+  }
+   console.log("CardNum - " + req.body.cardNum)
   if(req.body.cardNum) {
     req.body.payment = {
       month:req.body.month,
