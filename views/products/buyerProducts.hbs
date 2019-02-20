@@ -4,9 +4,9 @@
         {{#each products}}
         <div>
             <div>
-                <p><a href="/buyer/buyerproducts/detail/{{id}}">Producto : {{this.title}}</a></p>
+                <p>Producto : <a href="/buyer/buyerproducts/detail/{{id}}">{{this.title}}</a></p>
                 <p>Descripción : {{this.description}}</p>
-                <p>Precio : {{this.unitPrice}}</p>
+                <p>Precio : {{this.unitPrice}} MXN</p>
             </div>
             <div>
                 <img src="#" alt="{{this.title}}">

@@ -72,7 +72,7 @@ hbs.registerHelper('ifUndefined', (value, options) => {
 });
 
 //Local Variables
-app.locals.title = 'Express - Generated with IronGenerator';
+app.locals.title = 'Community';
 app.locals.loggedUser = false
 
 //Logged In Check Middleware

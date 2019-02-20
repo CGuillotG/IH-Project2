@@ -5,12 +5,14 @@
     <section class="container-1-sellerProducts">
         {{#each products}}
         <div>
-            <p><a href="/seller/products/detail/{{this._id}}">{{this.title}}</a></p>
-            <p>{{this.category}}</p>
-            <p>{{this.unitPrice}}</p>
-        </div>
-        <div>
-            <img src={{this.picURL}} alt="{{this.title}}">
+            <div>
+                <p><strong>Product : </strong><a href="/seller/products/detail/{{this._id}}">{{this.title}}</a></p>
+                <p>Description : {{this.category}}</p>
+                <p>Price : {{this.unitPrice}} MXN</p>
+            </div>
+            <div>
+                <img src={{this.picURL}} alt="{{this.title}}">
+            </div>
         </div>
         {{/each}}
     </section>
