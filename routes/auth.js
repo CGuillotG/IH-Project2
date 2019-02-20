@@ -17,6 +17,12 @@ router.post("/profile/edit",isLogged,(req,res,next) => {
   
 })
 
+//Dasboard redirect
+router.get("/dash", (req, res, next) => {
+  if (req.user.isSeller) res.redirect("/seller")
+  else res.redirect("/buyer")
+})
+
 //Log In
 router.get("/login", (req, res, next) => {
   let error = req.flash("error")[0]
@@ -24,7 +30,7 @@ router.get("/login", (req, res, next) => {
 });
 
 router.post("/login", passport.authenticate("local", {
-  successRedirect: "/profile",
+  successRedirect: "/dash",
   failureRedirect: "/login",
   failureFlash: true,
   passReqToCallback: true
