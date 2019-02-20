@@ -9,16 +9,15 @@ let passport = require ("./helpers/passport") //Passport's sole purpose is to au
 let bodyParser = require ("body-parser") //Parse incoming request bodies in a middleware before your handlers, available under the req.body property.
 let cookieParser = require ("cookie-parser") //Parse Cookie header and populate req.cookies with an object keyed by the cookie names. 
 let favicon = require ("serve-favicon") //Middleware for serving a favicon in memory thereby improving performance
+let flash = require("connect-flash"); //restore flash memory to express
 let logger = require ("morgan") //HTTP request logger middleware
 let path = require("path") //Utilities for working with file and directory paths
-let paypal = require("paypal-rest-sdk") //paypal pays
+let paypalsdk = require("paypal-rest-sdk") //paypal pays
 
-
-let flash = require("connect-flash");
     
 //DB Connection
-mongoose.connect(process.env.DB, {useNewUrlParser: true})
-  .then(x => console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`))
+mongoose.connect(process.env.DB, {useCreateIndex:true,useNewUrlParser: true})
+  .then(x => console.log(`Connected to Mongo! Database name: "${x.connections[0].db.databaseName}"`))
   .catch(err => console.error('Error connecting to mongo', err))
 
 //App config
@@ -40,7 +39,7 @@ app.use(passport.initialize())
 app.use(passport.session())
 
 //PayPal Setup
-paypal.configure({
+paypalsdk.configure({
     "mode":"sandbox",
     "client_id":process.env.PAYPAL_ID,
     "client_secret":process.env.PAYPAL_SECRET
@@ -75,8 +74,8 @@ hbs.registerHelper('ifUndefined', (value, options) => {
 app.locals.title = 'Community';
 app.locals.loggedUser = false
 
-//Logged In Check Middleware
-function isLogged(req,res,next){
+//Logged In Local Var Middleware
+function isLoggedUser(req,res,next){
     if(req.isAuthenticated()){
         app.locals.loggedUser=true
         next()
@@ -90,17 +89,18 @@ function isLogged(req,res,next){
 let index = require ("./routes/index")
 let auth = require ("./routes/auth")
 let products = require ("./routes/products")
-let Paypal = require ("./routes/paypal")
+let paypal = require ("./routes/paypal")
 let users = require("./routes/users")
-app.use("/",isLogged,index)
-app.use("/",isLogged,auth)
-app.use("/",isLogged,products)
-app.use("/",isLogged,users)
-app.use("/",isLogged,Paypal)
+app.use("/",isLoggedUser,index)
+app.use("/",isLoggedUser,auth)
+app.use("/",isLoggedUser,products)
+app.use("/",isLoggedUser,users)
+app.use("/",isLoggedUser,paypal)
+
 
 app.listen(process.env.PORT, () => {
     console.log(`Listening on http://localhost:${process.env.PORT}`);
-});
+  });
 
-      
+
 module.exports = app;
