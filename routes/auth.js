@@ -2,12 +2,13 @@ let router = require ("express").Router()
 let passport = require("passport")
 let uploadCloud = require('../helpers/cloudinary')
 let User = require("../models/User")
+let {isLogged} = require('../helpers/middlewares')
 
 //Middleware Authentication
-function isLogged(req,res,next){
-  if(req.isAuthenticated()) return next()
-  return res.redirect("/login")
-}
+// function isLogged(req,res,next){
+//   if(req.isAuthenticated()) return next()
+//   return res.redirect("/login")
+// }
 
 //Profile
 router.get("/profile",isLogged,(req,res,next) => {
@@ -24,7 +25,8 @@ router.post("/profile/edit",isLogged,(req,res,next) => {
 
 //Log In
 router.get("/login", (req, res, next) => {
-  res.render("auth/login", { error: req.flash("error") });
+  let error = req.flash("error")[0]
+  res.render("auth/login", { error });
 });
 
 router.post("/login", passport.authenticate("local", {
