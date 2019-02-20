@@ -69,6 +69,7 @@ app.locals.loggedUser = false
 function isLoggedUser(req,res,next){
     if(req.isAuthenticated()){
         app.locals.loggedUser=true
+        app.locals.loggedUserPic=req.user.picURL
         next()
     } else {
         app.locals.loggedUser=false
