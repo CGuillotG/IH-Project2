@@ -22,8 +22,8 @@ router.post("/buyer/paypal", isLogged, (req,res,next) => {
           "payment_method": "paypal"
         },
       "redirect_urls": {
-          "return_url": "http://localhost:3000/buyer/paypal/success",
-          "cancel_url": "http://localhost:3000/buyer/paypal/cancel"
+          "return_url": "https://community-ihproject2.herokuapp.com/buyer/paypal/success",
+          "cancel_url": "https://community-ihproject2.herokuapp.com/buyer/paypal/cancel"
       },
       "transactions": [{
           "item_list": {
