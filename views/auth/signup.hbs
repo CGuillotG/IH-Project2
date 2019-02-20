@@ -14,7 +14,7 @@
   <section class="container-2-signup">
     <div>
       <h2>Sign Up</h2>
-      <form class="form-signup" action="/signup" method="POST">
+      <form class="form-signup" action="/signup" method="POST" enctype="multipart/form-data">
         <input type="text" name="username" placeholder="username">
         <br>
         <input type="email" name="email" placeholder="email">
@@ -22,9 +22,11 @@
         <input type="password" name="password" placeholder="password">
         <br>
         <input type="password" name="password2" placeholder="repeat your password">
-        {{#if message }}
-          <div class="error-message">{{ error }}</div>
-        {{else}}
+        <br>
+        <input name="picUrl" type="file" accept="image/*">
+        <br>
+        {{#if error}}
+          <p class="error-message">{{ error }}</p>
           <br>
         {{/if}}
         <br>
