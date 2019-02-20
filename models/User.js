@@ -19,8 +19,14 @@ let userSchema = new Schema ({
         type:String,
         default:"https://res.cloudinary.com/cgui1107/image/upload/v1550515432/Community-IHProject2/DefaultProfilePic.jpg",
     },
-    ratingSeller:Number,
-    ratingBuyer:Number,
+    ratingSeller:{
+        type:Number,
+        default:0
+    },
+    ratingBuyer:{
+        type:Number,
+        default:0
+    },
     address:{
         street:String,
         state:String,
@@ -32,6 +38,7 @@ let userSchema = new Schema ({
     },
     payment:{
         numberCard:String,
+        numberCardMasked:String,
         month:String,
         year:String,
         cvv:String
