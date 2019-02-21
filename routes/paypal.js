@@ -24,7 +24,7 @@ router.post("/buyer/paypal", isLogged, (req,res,next) => {
       "redirect_urls": {
           "return_url": `http://localhost:3000/buyer/paypal/success/${req.user._id}/${req.body.id}/${req.body.buyerQuantity}`,
           "cancel_url": "http://localhost:3000.com/buyer/paypal/cancel"
-          // "return_url": "https://community-ihproject2.herokuapp.com/buyer/paypal/success",
+          // "return_url": "https://community-ihproject2.herokuapp.com/buyer/paypal/success/${req.user._id}/${req.body.id}/${req.body.buyerQuantity}",
           // "cancel_url": "https://community-ihproject2.herokuapp.com/buyer/paypal/cancel"
       },
       "transactions": [{
@@ -70,8 +70,6 @@ router.get("/buyer/paypal/success/:id/:prodid/:qty", /* isLogged,  */(req,res,ne
   let userId = req.params.id
   let prodId = req.params.prodid
   let qty = req.params.qty
-  console.log('Params - ' + req.params)
-
   let execute_payment_json = {
     "payer_id":payerId,
     "transactions":[{
@@ -80,34 +78,33 @@ router.get("/buyer/paypal/success/:id/:prodid/:qty", /* isLogged,  */(req,res,ne
         "total":payerId.total
       }
     }]
-
   }
 
   Paypal.payment.execute(paymentId,execute_payment_json,function(error,payment){
     if(!error){
       throw error
     } else {      
-      Product.findById(req.body.id).populate("order")
+      Product.findById(prodId)
       .then(product=>{
-        console.log("Written!")
-        product.order.buyers.push({
-          buyer:req.user.id,
-          buyerQuantity:req.body.buyerQuantity
+        let orderId = product.order
+        Order.findById(orderId)
+        .then(order=>{
+          let buyers = order.buyers
+          buyers.push({buyer:userId,buyerQuantity:qty})
+          Order.findByIdAndUpdate(orderId, {buyers}, {new:true})
+          .then(norder=>{
+            console.log("Written!")
+            // res.json(norder)
+            res.redirect("/buyer/orders")
+          })
         })
       })
-
-      res.redirect("/buyer/orders")
     }
-
   })
-
 })
 
 router.get("/buyer/paypal/cancel",(req,res,next) => {
   res.send("cancelled")
 })
-
-
-
 
   module.exports = router
