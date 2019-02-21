@@ -331,7 +331,6 @@ footer {
 
 
 /*SELLER*/
-
 .container-seller{
     width:95vw;
     display:flex;
@@ -384,7 +383,6 @@ footer {
     align-items: center;
     flex-direction: column;
     width:95vw;
-    
 }
 
 .container-sellerProducts h2{
@@ -529,13 +527,11 @@ footer {
 
 /*SELLERDETAIL*/
 .container-sellerDetail{
-
     display: flex;
     flex-direction: column;
     background-color: rgb(242, 251, 255);
     border:2px rgb(80, 215, 248) solid;
     padding: 1% 5% 5% 5%;
-
     margin-top: 5%;
     margin-right: 30%;
 }
@@ -578,6 +574,55 @@ footer {
 }
 /*SELLERDETAIL*/
 
+
+/*SELLEREDIT*/
+.container-sellerEdit{
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(242, 251, 255);
+    border:2px rgb(80, 215, 248) solid;
+    padding: 1% 5% 5% 5%;
+    margin-top: 5%;
+    margin-right: 30%;
+}
+
+.container-sellerEdit h2{
+    font-family: 'Staatliches';
+    font-weight: 200;
+}
+.container-1-sellerEdit{
+    font-family: "karla";
+}
+
+.container-2-sellerEdit{
+    font-family: "karla";
+    text-align: center;
+}
+
+.container-2-sellerEdit button{
+    font-family: "karla";
+    background-color: rgb(80, 215, 248);
+    border: 2px rgb(80, 215, 248) solid;
+    margin-top: 1%;
+    width: 50%;
+}
+
+.container-2-sellerEdit button:hover{
+    background-color: rgb(0, 204, 255);
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.container-2-sellerEdit button a{
+    text-decoration: none;
+    color: black;
+}
+
+.container-2-sellerEdit button a:hover{
+    font-weight: bold;
+    font-size: 15px;
+}
+/*SELLEREDIT*/
 
 
 
