@@ -29,15 +29,17 @@ const app = express();
 //Session Setup
 app.use(session({
   secret: process.env.SECRET,
-  resave: true,
+  resave: false,
+  httpOnly: true,
   saveUninitialized: true,
-  cookie:{maxAge:60000},
+  cookie: { httpOnly: true, maxAge: 2419200000 },
   store: new MongoStore({
     mongooseConnection: mongoose.connection,
     ttl: 24 * 60 * 60 // 1 day
   })
 }))
 app.use(flash());
+
 
 //Passport Setup
 app.use(passport.initialize())
