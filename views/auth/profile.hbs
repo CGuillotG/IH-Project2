@@ -7,7 +7,7 @@
         </section>
 
         <section class="container-2-profile">
-            <p><strong>Name: </strong>{{name}}</p>
+            <p><strong>First Name: </strong>{{name}}</p>
             <p><strong>Last Name: </strong>{{surname}}</p>
             <p><strong>Username: </strong>{{username}}</p>
             <p><strong>Email: </strong>{{email}}</p>
@@ -16,7 +16,7 @@
                 <p><strong>Seller Rating: </strong>{{ratingSeller}}</p> 
             {{/if}}
             <br>
-            <p><strong>Address:</strong></p>  
+            <p><strong>Address</strong></p>  
             <p><strong>Street:</strong>{{address.street}}</p>  
             <p><strong>Ext Num:</strong>{{address.extNumber}}</p>  
             <p><strong>Int Num:</strong>{{address.intNumber}}</p> 
@@ -24,8 +24,8 @@
             <p><strong>State:</strong>{{address.state}}</p>  
             <p><strong>Zip Code:</strong>{{address.postalcode}}</p>
             <br> 
-            <p><strong>Payment:</strong></p>  
-            <p><strong>Card Number:</strong>{{payment.numberCardMasked}}</p> 
+            <p><strong>Payment</strong></p>  
+            <p><strong>Card Number:</strong>**** **** **** {{payment.numberCardMasked}}</p> 
             <p><strong>Exp Month:</strong>{{payment.month}}</p>
             <p><strong>Exp Year:</strong>{{payment.year}}</p>
             <a href="/profile/edit"><button>Edit Profile</button></a>
