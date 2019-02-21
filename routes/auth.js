@@ -5,6 +5,15 @@ let User = require("../models/User")
 let {isLogged} = require('../helpers/middlewares')
 
 //Profile
+router.get("/profile/becomeSeller",isLogged,(req,res,next) => {
+    res.render('auth/becomeSeller')
+})
+
+router.get("/profile/becomeSeller/confirm",isLogged,(req,res,next) => {
+  User.findByIdAndUpdate(req.user._id, {isSeller:true})
+  res.redirect('/profile/edit')
+})
+
 router.get("/profile",isLogged,(req,res,next) => {
   res.render("auth/profile", req.user)
 })
@@ -17,7 +26,7 @@ router.post("/profile/edit",isLogged, uploadCloud.single('picURL'), (req,res,nex
   if(req.file) {
     req.body.picURL = req.file.secure_url
   }
-   console.log("CardNum - " + req.body.cardNum)
+  console.log("CardNum - " + req.body.cardNum)
   if(req.body.cardNum) {
     req.body.payment = {
       month:req.body.month,
