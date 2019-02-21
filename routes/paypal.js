@@ -74,12 +74,25 @@ router.post("/buyer/paypal", isLogged, (req,res,next) => {
           "total":payerId.total
         }
       }]
+
     }
   
     Paypal.payment.execute(paymentId,execute_payment_json,function(error,payment){
       if(!error){
         throw error
       } else {
+        console.log("Prod Id - " + req.body.id)
+        console.log("Quantity - " + req.body.buyerQuantity)
+        console.log("User Id - " + req.user.id)
+        Product.findById(req.body.id).populate("order")
+        .then(product=>{
+          console.log("Written!")
+          product.order.buyers.push({
+            buyer:req.user.id,
+            buyerQuantity:req.body.buyerQuantity
+          })
+        })
+
         res.redirect("/buyer/orders")
       }
   
