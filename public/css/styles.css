@@ -30,6 +30,7 @@ nav a{
 nav a:hover{
     font-size: 20px;
     color:black;
+    cursor: pointer;
 }
 
 #navProf{
@@ -63,7 +64,7 @@ footer {
     font-weight: lighter;
     border-right: 2px rgb(173, 224, 240) solid;
     height:calc(100vh - 100px);
-    width:5vw;
+    width:10vw;
     display: flex;
     flex-flow: column;
     justify-content: flex-start;
@@ -76,12 +77,18 @@ footer {
     color:rgb(112, 202, 230);
 }
 
+.leftnavbar a:hover{
+    color:black;
+    cursor: pointer;
+}
+
 .leftnavbar div{
     width:100%;
     padding:15px 0;
     display: flex;
     justify-content: center;
     align-items: center;
+    
 }
 
 .leftnavbar .selected{
@@ -89,8 +96,15 @@ footer {
 }
 
 .leftnavbar .selected a{
-    color:white
+    color:white;
+    width: 100%;
 }
+
+.leftnavbar .selected a:hover{
+    color:black;
+    cursor: pointer;
+}
+
 /*LEFTNAVBAR*/
 
 
@@ -177,6 +191,8 @@ footer {
 
 .form-login input:hover{
     border: 1px rgb(80, 215, 248) solid;
+    font-size: 15px;
+    cursor: pointer;
 }
 
 .form-login input[type=submit]{
@@ -189,6 +205,7 @@ footer {
 .form-login input[type=submit]:hover{
     font-weight: bold;
     font-size: 15px;
+    cursor: pointer;
 }
 
 .account-message a{
@@ -198,6 +215,7 @@ footer {
 
 .account-message a:hover{
     color: rgb(0, 204, 255);
+    cursor: pointer;
 }
 /* LOGIN*/
 
@@ -263,6 +281,7 @@ footer {
 .form-signup input:hover{
     border: 1px rgb(80, 215, 248) solid;
     font-size: 15px;
+    cursor: pointer;
 }
 
 .form-signup input[type=submit]{
@@ -275,6 +294,7 @@ footer {
 .form-signup input[type=submit]:hover{
     font-weight: bold;
     font-size: 15px;
+    cursor: pointer;
 }
 
 .account-message-signup a{
@@ -283,6 +303,7 @@ footer {
 
 .account-message-signup a:hover{
     color: rgb(0, 204, 255);
+    cursor: pointer;
 }
 /*SIGNUP*/
 
@@ -308,6 +329,7 @@ footer {
     background-color: rgb(0, 204, 255);
     font-weight: bold;
     font-size: 15px;
+    cursor: pointer;
 }
 
 .container-2-profile button a{
@@ -322,6 +344,7 @@ footer {
 .container-2-profile button a:hover{
     font-weight: bold;
     font-size: 15px;
+    cursor: pointer;
 }
 /*PROFILE*/
 
@@ -330,47 +353,66 @@ footer {
 
 
 /*SELLER*/
-
 .container-seller{
-    width:95vw;
     display:flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
+    padding: 2% 10% 10% 10%;
+    width:95vw;
 }
+
+.container-1-seller{
+    font-family: 'Staatliches';
+    font-weight: 200;
+    font-size: 2vw;
+    margin-bottom: 5%;
+    height: 20%;
+}
+
 .container-2-seller{
     display: flex;
     justify-content: space-around;
-    width:50%
+    width:80%;
 }
 
-.container-2-seller button{
-    font-family: "karla";
-    padding: 15px;
-    background-color: rgb(80, 215, 248);
-    margin-top: 1%;
-    border: 2px rgb(80, 215, 248) solid;
-    width: 40%;
-}
-
-.container-2-seller button:hover{
-    background-color: rgb(0, 204, 255);
-    font-weight: bold;
-}
-
-.container-2-seller button a{
+.a-2-seller-add{
     font-family: "karla";
     color:black;
     font-weight: 300;
-    padding: 5%;
     text-decoration: none;
-    font-size: 30x;
+    font-size: 1vw;
+    padding: 1% .5% 1% .5%;
+    background-color: rgb(80, 215, 248);
+    border: 2px rgb(80, 215, 248) solid;
+    width: 30%;
+    text-align: center;
 }
 
-.container-2-seller button a:hover{
+.a-2-seller-add:hover{
     font-weight: bold;
-    font-size: 15px;
+    font-size: 1.2vw;
+    cursor: pointer;
 }
+
+.a-2-seller-view{
+    font-family: "karla";
+    color:black;
+    font-weight: 300;
+    text-decoration: none;
+    font-size: 1vw;
+    padding: 1% .5% 1% .5%;
+    background-color: rgb(80, 215, 248);
+    border: 2px rgb(80, 215, 248) solid;
+    width: 30%;
+    text-align: center;
+}
+
+.a-2-seller-view:hover{
+    font-weight: bold;
+    font-size: 1.2vw;
+    cursor: pointer;
+}
+
 /*SELLER*/
 
 
@@ -383,12 +425,14 @@ footer {
     align-items: center;
     flex-direction: column;
     width:95vw;
-    
 }
 
 .container-sellerProducts h2{
     font-family: 'Staatliches';
     font-weight: 200;
+    font-size: 2vw;
+    margin-bottom: 5%;
+    height: 20%;
 }
 
 .container-1-sellerProducts{
@@ -407,9 +451,10 @@ footer {
     margin-right: 1%;
 }
 
-/* .container-1-sellerProducts > div:hover{
-    border: 3.5px rgb(80, 215, 248) solid;
-} */
+.container-1-sellerProducts > div:hover{
+    border: 1px rgb(80, 215, 248) solid;
+    cursor: pointer;
+}
 
 .container-1-sellerProducts div a{
     text-decoration: none;
@@ -419,6 +464,7 @@ footer {
 
 .container-1-sellerProducts div a:hover{
     color: rgb(0, 204, 255);
+    cursor: pointer;
 }
 
 .container-2-sellerProducts button{
@@ -432,6 +478,7 @@ footer {
     background-color: rgb(0, 204, 255);
     font-weight: bold;
     font-size: 15px;
+    cursor: pointer;
 }
 
 
@@ -446,6 +493,7 @@ footer {
 .container-2-sellerProducts button a:hover{
     font-weight: bold;
     font-size: 15px;
+    cursor: pointer;
 }
 /*SELLERPRODUCTS*/
 
@@ -458,67 +506,71 @@ footer {
     flex-direction: column;
     background-color: rgb(242, 251, 255);
     border:2px rgb(80, 215, 248) solid;
-    padding: 1% 5% 5% 5%;
- 
-    margin-top: 5%;
-    margin-right: 30%;
-    width:95vw;
-    justify-content: center;
-    align-items: center;
+    width:60vw;
+    margin: 3% 20% 3% 20%;
 }
 
 .container-1-sellerAdd{
     font-family: 'Staatliches';
-    font-weight: lighter;
+    font-weight: 200;
+    font-size: 2vw;
+    padding-top: 0%;
+    text-align: center;
+}
+
+.container-2-sellerAdd{
+    text-align: center;
 }
 
 .container-2-sellerAdd input{
     font-family: "karla";
+    font-size: 1vw;
     margin-top: 1%;
     margin-bottom: 1%;
-    width: 85%;
+    width: 70%;
 }
 
 .container-2-sellerAdd input:hover{
     border: 1px rgb(80, 215, 248) solid;
+    font-size: 1.2vw;
 }
 
 .container-2-sellerAdd input[type=submit]{
     font-family: "karla";
     background-color: rgb(80, 215, 248);
     border: 2px rgb(80, 215, 248) solid;
-    width: 85%;
+    padding: 1% .5% 1% .5%;
+   
 }
 
 .container-2-sellerAdd input[type=submit]:hover{
     background-color: rgb(0, 204, 255);
     font-weight: bold;
+    font-size: 1.2vw;
+    cursor: pointer;
+
 }
 
-
-.container-2-sellerAdd button{
+.container-2-sellerAdd a{
     font-family: "karla";
+    color:black;
+    font-weight: 300;
+    text-decoration: none;
+    font-size: 1vw;
+    margin-top: 1%;
+    padding: 1% .5% 1% .5%;
     background-color: rgb(80, 215, 248);
     border: 2px rgb(80, 215, 248) solid;
-    margin-top: 1%;
-    width: 85%;
+    text-align: center;
 }
 
-.container-2-sellerAdd button:hover{
-    background-color: rgb(0, 204, 255);
+.container-2-sellerAdd a:hover{
     font-weight: bold;
-    font-size: 15px;
+    font-size: 1.2vw;
+    cursor: pointer;
 }
 
-.container-2-sellerAdd button a{
-    text-decoration: none;
-    color: black;
-}
 
-.container-2-sellerAdd button a:hover{
-    font-weight: bold;
-    font-size: 15px;
-}
 /*SELLERADD*/
 
 
@@ -526,13 +578,11 @@ footer {
 
 /*SELLERDETAIL*/
 .container-sellerDetail{
-
     display: flex;
     flex-direction: column;
     background-color: rgb(242, 251, 255);
     border:2px rgb(80, 215, 248) solid;
     padding: 1% 5% 5% 5%;
-
     margin-top: 5%;
     margin-right: 30%;
 }
@@ -575,6 +625,55 @@ footer {
 }
 /*SELLERDETAIL*/
 
+
+/*SELLEREDIT*/
+.container-sellerEdit{
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(242, 251, 255);
+    border:2px rgb(80, 215, 248) solid;
+    padding: 1% 5% 5% 5%;
+    margin-top: 5%;
+    margin-right: 30%;
+}
+
+.container-sellerEdit h2{
+    font-family: 'Staatliches';
+    font-weight: 200;
+}
+.container-1-sellerEdit{
+    font-family: "karla";
+}
+
+.container-2-sellerEdit{
+    font-family: "karla";
+    text-align: center;
+}
+
+.container-2-sellerEdit button{
+    font-family: "karla";
+    background-color: rgb(80, 215, 248);
+    border: 2px rgb(80, 215, 248) solid;
+    margin-top: 1%;
+    width: 50%;
+}
+
+.container-2-sellerEdit button:hover{
+    background-color: rgb(0, 204, 255);
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.container-2-sellerEdit button a{
+    text-decoration: none;
+    color: black;
+}
+
+.container-2-sellerEdit button a:hover{
+    font-weight: bold;
+    font-size: 15px;
+}
+/*SELLEREDIT*/
 
 
 

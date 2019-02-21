@@ -9,7 +9,7 @@ let {isLogged} = require('../helpers/middlewares')
 let {isSeller} = require('../helpers/middlewares')
 
 //SELLER
-router.get("/seller", isLogged, isSeller, (req,res,next) => {
+router.get("/seller", isLogged, isSeller,(req,res,next) => {
   res.render("seller/seller")
 })
 
@@ -35,7 +35,7 @@ router.post("/seller/add", isLogged, isSeller, uploadCloud.single('picURL'), (re
 })
 
 //DETAIL PRODUCT SELLER
-router.get("/seller/products/detail/:id", isLogged, isSeller, (req,res,next) => {
+router.get("/seller/products/detail/:id", isLogged, isSeller,(req,res,next) => {
   let {id}=req.params
   Product.findById(id)
   .then(product => {
@@ -43,6 +43,25 @@ router.get("/seller/products/detail/:id", isLogged, isSeller, (req,res,next) => 
   })
   .catch(e => next(e))
 })
+
+//EDIT PRODUCT SELLER
+router.post('/seller/products/detail/:id/edit',isLogged,isSeller, (req, res,next)=>{
+  Product.findByIdAndUpdate(req.params.id, {$set: req.body}, {new: true})
+  res.render("seller/sellerProducts")
+})
+
+router.get("/seller/products/detail/:id/edit",isLogged,isSeller, (req,res,next) => {
+  let {id} = req.params
+  Product.findByIdAndUpdate(id)
+  .then(product => {
+    console.log(req.params)
+    res.render("seller/sellerEdit",product)
+  })
+  .catch(e => next(e))
+})
+
+
+
 
 //DELETE PRODUCT SELLER
 router.get("/seller/products/detail/:id/delete", isLogged, isSeller, (req,res,next) => {
@@ -58,7 +77,7 @@ router.get("/seller/products/detail/:id/delete", isLogged, isSeller, (req,res,ne
 
 //VIEW ALL PRODUCT SELLER
 router.get("/seller/products", isLogged, isSeller, (req,res,next)=>{
-  Product.find()
+  Product.find({seller:req.user._id})
   .then(products=>{
     res.render("seller/sellerProducts",{products})
   })

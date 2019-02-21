@@ -95,7 +95,14 @@ router.get("/buyer/paypal/success/:id/:prodid/:qty", /* isLogged,  */(req,res,ne
           .then(norder=>{
             console.log("Written!")
             // res.json(norder)
-            res.redirect("/buyer/orders")
+            let rendervars = {
+              title:product.title,
+              unitPrice:product.unitPrice,
+              quantity:qty,
+              totalPrice:qty*product.unitPrice,
+              productId:prodId
+            }
+            res.render('orders/newOrder', rendervars)
           })
         })
       })
