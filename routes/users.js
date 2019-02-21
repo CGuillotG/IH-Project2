@@ -9,17 +9,17 @@ let {isLogged} = require('../helpers/middlewares')
 let {isSeller} = require('../helpers/middlewares')
 
 //SELLER
-router.get("/seller", /*isLogged, isSeller,*/(req,res,next) => {
+router.get("/seller", isLogged, isSeller, (req,res,next) => {
   res.render("seller/seller")
 })
 
 
 //ADD PRODUCT SELLER
-router.get("/seller/add", /*isLogged, isSeller,*/ (req,res,next) => {
+router.get("/seller/add", isLogged, isSeller, (req,res,next) => {
   res.render("seller/sellerAdd")
 })
 
-router.post("/seller/add", /*isLogged, isSeller,*/ uploadCloud.single('picURL'), (req,res,next) => {
+router.post("/seller/add", isLogged, isSeller, uploadCloud.single('picURL'), (req,res,next) => {
   if(req.file) {
     req.body.picURL = req.file.secure_url
   }
@@ -35,7 +35,7 @@ router.post("/seller/add", /*isLogged, isSeller,*/ uploadCloud.single('picURL'),
 })
 
 //DETAIL PRODUCT SELLER
-router.get("/seller/products/detail/:id", /*isLogged, isSeller,*/(req,res,next) => {
+router.get("/seller/products/detail/:id", isLogged, isSeller,(req,res,next) => {
   let {id}=req.params
   Product.findById(id)
   .then(product => {
@@ -64,7 +64,7 @@ router.get("/seller/products/detail/:id/edit",isLogged,isSeller, (req,res,next) 
 
 
 //DELETE PRODUCT SELLER
-router.get("/seller/products/detail/:id/delete", /*isLogged, isSeller,*/ (req,res,next) => {
+router.get("/seller/products/detail/:id/delete", isLogged, isSeller, (req,res,next) => {
   
   let {id} = req.params
   console.log(id)
