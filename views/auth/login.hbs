@@ -5,7 +5,35 @@
     </div>
     <div>
       <form class="form-login" action="/login" method="POST">
-        <input type="email" name="email" placeholder="Email">
+        {{#if error }}
+          <div class="error-message">{{ error }}</div>
+        {{else}}
+          <br>
+        {{/if}}
+        <div class="row">
+          <div class="col s12">
+            <div class="row">
+              <div class="input-field col s12">
+                <i class="material-icons prefix">email</i>
+                <input type="email" id="autocomplete-input" class="autocomplete" name="email">
+                <label for="autocomplete-input">Email</label>
+              </div>
+              <div class="input-field col s12">
+                <i class="material-icons prefix">lock</i>
+                <input type="password" id="autocomplete-input" class="autocomplete" name="password">
+                <label for="autocomplete-input">Password</label>
+              </div>
+              <div class="file-path-wrapper">
+                <i class="material-icons right">input</i>
+                <input class="file-path validate  blue lighten-1" type="submit" placeholder="submit" value="Login">
+              </div>
+            </div>
+          </div>
+        </div>
+        {{!-- <a class="waves-effect waves-light btn blue" href="/login"><i class="material-icons right">input</i>Login</a>
+        <br> --}}
+        <p class="account-message">Crear una cuenta <strong><a href="/signup">Signup</a></strong></p> --}}
+        {{!-- <input type="email" name="email" placeholder="Email">
         <br>
         <input type="password" name="password" placeholder="Password">
         <br>
@@ -14,9 +42,9 @@
         {{else}}
           <br>
         {{/if}}
-        <input type="submit" value="Login">
+        <a class="waves-effect waves-light btn blue" href="/signup"><i class="material-icons right">input</i>Signup</a>
         <br>
-        <p class="account-message">Crear una cuenta <strong><a href="/signup">Signup</a></strong></p>
+        <p class="account-message">Crear una cuenta <strong><a href="/signup">Signup</a></strong></p> --}}
       </form>
     </div>
   </section>
@@ -30,3 +58,5 @@
     </div>
   </section>
 </section>
+
+

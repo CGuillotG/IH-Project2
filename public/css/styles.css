@@ -104,7 +104,6 @@ footer {
     color:black;
     cursor: pointer;
 }
-
 /*LEFTNAVBAR*/
 
 
@@ -115,6 +114,7 @@ footer {
     margin-top:10px;
     display: flex;
     flex-direction: column;
+    
  }
 
  .container-index section{
@@ -125,13 +125,19 @@ footer {
     background: url("http://blog.edx.org/wp-content/uploads/2017/02/Untitled-design-10.png") no-repeat;
     background-size: 100%;
     height:500px;
-    opacity: 0.85;
  }
 
- .container-1-index div{
-    margin-top:5%;
+ .container-1-index-a{
+    margin-top:8%;
+    margin-left: 25%;
+    font-size: 10vw;
+ }
+
+ .container-1-index-b{
+    margin-top:0%;
     margin-left: 5%;
-    font-size: 18vw;
+    font-size: 4vw;
+    text-align: center;
  }
 /*INDEX*/
 
@@ -139,6 +145,11 @@ footer {
 
 
 /*LOGIN*/
+.file-path{
+    border: 1px #42a5f5 solid;
+    cursor: pointer;
+}
+
 .error-message{
     color: red;
     text-align: center;
@@ -182,7 +193,7 @@ footer {
     font-weight: 200;
 }
 
-.form-login input{
+/* .form-login input{
     font-family: "karla";
     width: 92%;
     padding:5px;
@@ -216,7 +227,7 @@ footer {
 .account-message a:hover{
     color: rgb(0, 204, 255);
     cursor: pointer;
-}
+} */
 /* LOGIN*/
 
 
@@ -421,7 +432,6 @@ footer {
     font-size: 1.2vw;
     cursor: pointer;
 }
-
 /*SELLER*/
 
 
@@ -599,47 +609,57 @@ footer {
     flex-direction: column;
     background-color: rgb(242, 251, 255);
     border:2px rgb(80, 215, 248) solid;
-    padding: 1% 5% 5% 5%;
-    margin-top: 5%;
-    margin-right: 30%;
+    padding: 1% 2.5% 2% 2.5%;
+    margin-top: 2%;
+    margin-left: 5%;
+    width: 25vw;
+    height: 76vh;
+    align-items: center;
 }
 
 .container-sellerDetail h2{
     font-family: 'Staatliches';
     font-weight: 200;
+    font-size: 2vw;
 }
 
 .container-1-sellerDetail{
     font-family: "karla";
+    margin-left: 20%;
+    font-size: 1vw; 
+    margin-bottom: 10%;
 }
 
+.container-1-sellerDetail img{
+    width: 60%;
+    height: 45%;
+}
+
+
 .container-2-sellerDetail{
+    display: flex;
+    flex-direction: column;
     font-family: "karla";
+    text-align: center;
+    padding-bottom: 1%;
+}
+
+
+.container-2-sellerDetail a{
+    font-family: "karla";
+    color:black;
+    font-weight: 300;
+    text-decoration: none;
+    font-size: .9vw;
+    margin-top: 1%;
+    padding: 1% 5% 1% 5%;
+    background-color: rgb(80, 215, 248);
+    border: 2px rgb(80, 215, 248) solid;
     text-align: center;
 }
 
-.container-2-sellerDetail button{
-    font-family: "karla";
-    background-color: rgb(80, 215, 248);
-    border: 2px rgb(80, 215, 248) solid;
-    margin-top: 1%;
-    width: 50%;
-}
-
-.container-2-sellerDetail button:hover{
-    background-color: rgb(0, 204, 255);
+.container-2-sellerDetail a:hover{
     font-weight: bold;
-    font-size: 15px;
-}
-
-.container-2-sellerDetail button a{
-    text-decoration: none;
-    color: black;
-}
-
-.container-2-sellerDetail button a:hover{
-    font-weight: bold;
-    font-size: 15px;
 }
 /*SELLERDETAIL*/
 
@@ -704,7 +724,7 @@ footer {
     width:70vw;
     background-color: rgb(242, 251, 255);
     border:2px rgb(80, 215, 248) solid;
-    margin: 2% 20% 5% 20%;
+    margin: 2% 30% 20% 30%;
 }
 
 .container-1-buyer{
@@ -722,6 +742,9 @@ footer {
 .container-2-buyer{
     width: 100%;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    width: 50%;
 }
 
 
@@ -732,7 +755,7 @@ footer {
     text-decoration: none;
     font-size: 1vw;
     margin-top: 1%;
-    padding: 1% 20% 1% 20%;
+    padding: 1% 5% 1% 5%;
     background-color: rgb(80, 215, 248);
     border: 2px rgb(80, 215, 248) solid;
     text-align: center;
@@ -847,6 +870,7 @@ footer {
     flex-direction: column;
     font-family: "karla";
     width: 50%;
+    align-items: center;
 }
 
 .container-2-buyerDetail input:hover{
@@ -856,15 +880,15 @@ footer {
 .container-2-buyerDetail input[type=submit]{
     font-family: "karla";
     background-color: rgb(80, 215, 248);
-    border: 2px rgb(80, 215, 248) solid;
+    border: 1px rgb(80, 215, 248) solid;
     width: 52%;
-    
+    align-items: center;    
 }
 
 .container-2-buyerDetail input[type=submit]:hover{
     background-color: rgb(0, 204, 255);
     font-weight: bold;
     font-size: 15px;
-    align-items: center;
+    
 }
 /*BUYERDETAIL*/

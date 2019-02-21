@@ -10,16 +10,10 @@
             <p><strong>Price : </strong>{{unitPrice}} MXN</p>
             <img src={{picURL}} alt={{this.title}} />
         </section>
-        <section class="container-2-sellerDetail">
-            <button><a href="/seller/products/detail/{{this._id}}/delete">Delete Product</a></button>
-            <button><a href="/seller/products/">View all Products</a></button>
-            <button><a href="/seller/">Profile</a></button>
-        </section>
-    </section>
     <section class="container-2-sellerDetail">
-        <button><a href="/seller/products/detail/{{this._id}}/edit">EDIT product</a></button>
-        <button><a href="/seller/products/detail/{{this._id}}/delete">DELETE Product</a></button>
-        <button><a href="/seller/products/">VIEW ALL Products</button>
-        <button><a href="/seller/">DASHBOARD</button>
+        <a href="/seller/products/detail/{{this._id}}/edit">EDIT product</a>
+        <a href="/seller/products/detail/{{this._id}}/delete">DELETE Product</a>
+        <a href="/seller/products/">VIEW ALL Products</a>
+        <a href="/seller/">DASHBOARD</a>
     </section>
 </section>
