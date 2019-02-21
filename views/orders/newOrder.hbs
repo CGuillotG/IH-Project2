@@ -1,0 +1,13 @@
+<section class="containerforleftbar">
+    {{>leftnavbuyer}}
+
+    <h2>PayPal Payment Succesful</h2>
+    <h4>Your order details:</h4>
+    <p><strong>Product: </strong>{{title}}</p>
+    <p><strong>Unit Price: </strong>${{unitPrice}}</p>
+    <p><strong>Quantity: </strong>{{quantity}}</p>
+    <p><strong>Total Price: ${{totalPrice}}</strong></p>
+ 
+    <a href="https://community-ihproject2.herokuapp.com/buyer/buyerproducts/detail/{{productId}}"><button>Product Page</button></a>
+    <a href="/buyer/orders"><button>View my Orders</button></a>
+</section>
