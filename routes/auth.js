@@ -10,11 +10,26 @@ router.get("/profile",isLogged,(req,res,next) => {
 })
 
 router.get("/profile/edit",isLogged,(req,res,next) => {
-  res.render("auth/editprofile")
+  res.render("auth/profileedit", req.user)
 })
 
-router.post("/profile/edit",isLogged,(req,res,next) => {
-  
+router.post("/profile/edit",isLogged, uploadCloud.single('picURL'), (req,res,next) => {
+  if(req.file) {
+    req.body.picURL = req.file.secure_url
+  }
+   console.log("CardNum - " + req.body.cardNum)
+  if(req.body.cardNum) {
+    req.body.payment = {
+      month:req.body.month,
+      year:req.body.year,
+      cvv:req.body.cvv,
+      numberCard:req.body.cardNum,
+      numberCardMasked: req.body.cardNum.substring(12)
+    }
+  }
+  console.log(req.body)
+  User.findByIdAndUpdate(req.user._id, req.body)
+  .then(()=>res.redirect('/profile'))
 })
 
 //Dasboard redirect

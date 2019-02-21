@@ -1,27 +1,27 @@
+<section class="containerforleftbar">
+    {{>leftnavseller}}
 
-
-<section class="container-sellerProducts">
-    <h2>Seller Products</h2>
-    <section class="container-1-sellerProducts">
-        {{#each products}}
-        <div>
+    <section class="container-sellerProducts">
+        <h2>Seller Products</h2>
+        <section class="container-1-sellerProducts">
+            {{#each products}}
             <div>
-                <p><strong>Product : </strong><a href="/seller/products/detail/{{this._id}}">{{this.title}}</a></p>
-                <p>Description : {{this.category}}</p>
-                <p>Price : {{this.unitPrice}} MXN</p>
+                <div>
+                    <p><strong>Product : </strong><a href="/seller/products/detail/{{this._id}}">{{this.title}}</a></p>
+                    <p>Description : {{this.category}}</p>
+                    <p>Price : {{this.unitPrice}} MXN</p>
+                </div>
+                <div>
+                    <img src={{this.picURL}} alt="{{this.title}}">
+                </div>
             </div>
-            <div>
-                <img src={{this.picURL}} alt="{{this.title}}">
-            </div>
-        </div>
-        {{/each}}
-    </section>
+            {{/each}}
+        </section>
 
-    <section class="container-2-sellerProducts">
-        <button><a href="/seller/add">ADD</a></button>
-        <button><a href="/seller/">Profile</a></button>
+        <section class="container-2-sellerProducts">
+            <button><a href="/seller/add">ADD</a></button>
+            <button><a href="/seller/">Profile</a></button>
+        </section>
     </section>
-</section>
-
     
-
+</section>

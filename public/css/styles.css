@@ -463,7 +463,6 @@ footer {
 }
 
 .container-1-sellerProducts div a:hover{
-    font-size:20px;
     color: rgb(0, 204, 255);
     cursor: pointer;
 }
@@ -656,7 +655,6 @@ footer {
 }
 
 .container-buyer div div p a:hover{
-    font-size:20px;
     color: rgb(0, 204, 255);
 }
 
@@ -722,7 +720,6 @@ footer {
 
 .container-2-buyerDetail input:hover{
     border: 1px rgb(80, 215, 248) solid;
-    font-size: 15px;
 }
 
 .container-2-buyerDetail input[type=submit]{

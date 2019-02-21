@@ -1,16 +1,19 @@
-<section class="container-sellerDetail">
-    <h2>Detail</h2>
-    <section class="container-1-sellerDetail">
-        <p><strong>Product : </strong>{{title}}</p>
-        <p><strong>Description : </strong>{{description}}</p>
-        <p><strong>Details : </strong>{{details}}</p>
-        <p><strong>Category : </strong>{{category}}</p>
-        <p><strong>Price : </strong>{{unitPrice}} MXN</p>
-        <img src={{picURL}} alt={{this.title}}/>
-    </section>
-    <section class="container-2-sellerDetail">
-        <button><a href="/seller/products/detail/{{this._id}}/delete">Delete Product</a></button>
-        <button><a href="/seller/products/">View all Products</a></button>
-        <button><a href="/seller/">Profile</a></button>
+<section class="containerforleftbar">
+    {{>leftnavseller}}
+    <section class="container-sellerDetail">
+        <h2>Detail</h2>
+        <section class="container-1-sellerDetail">
+            <p><strong>Product : </strong>{{title}}</p>
+            <p><strong>Description : </strong>{{description}}</p>
+            <p><strong>Details : </strong>{{details}}</p>
+            <p><strong>Category : </strong>{{category}}</p>
+            <p><strong>Price : </strong>{{unitPrice}} MXN</p>
+            <img src={{picURL}} alt={{this.title}} />
+        </section>
+        <section class="container-2-sellerDetail">
+            <button><a href="/seller/products/detail/{{this._id}}/delete">Delete Product</a></button>
+            <button><a href="/seller/products/">View all Products</a></button>
+            <button><a href="/seller/">Profile</a></button>
+        </section>
     </section>
 </section>

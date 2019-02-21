@@ -13,6 +13,7 @@ let flash = require("connect-flash"); //restore flash memory to express
 let logger = require ("morgan") //HTTP request logger middleware
 let path = require("path") //Utilities for working with file and directory paths
 let paypalsdk = require("paypal-rest-sdk") //paypal pays
+let MongoStore = require("connect-mongo")(session);
 
     
 //DB Connection
@@ -30,7 +31,11 @@ app.use(session({
   secret: process.env.SECRET,
   resave: true,
   saveUninitialized: true,
-  cookie:{maxAge:60000}
+  cookie:{maxAge:60000},
+  store: new MongoStore({
+    mongooseConnection: mongoose.connection,
+    ttl: 24 * 60 * 60 // 1 day
+  })
 }))
 app.use(flash());
 
@@ -98,11 +103,5 @@ app.use("/",isLoggedUser,auth)
 app.use("/",isLoggedUser,products)
 app.use("/",isLoggedUser,users)
 app.use("/",isLoggedUser,paypal)
-
-
-app.listen(process.env.PORT, () => {
-    console.log(`Listening on http://localhost:${process.env.PORT}`);
-  });
-
 
 module.exports = app;

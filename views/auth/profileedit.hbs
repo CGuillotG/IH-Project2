@@ -1,0 +1,34 @@
+<section class="containerforleftbar">
+    {{>leftnavprofile}}
+    <section class="container-profile">
+        <section class="container-1-profile">
+            <h2>Profile</h2>
+            <img style="width:300px; border-radius:50%" src="{{picURL}}" alt="Profile Pic">
+        </section>
+
+        <section class="container-2-profile">
+            <form action="/profile/edit" method="POST" enctype="multipart/form-data">
+                <p><strong>First Name: </strong><input value="{{name}}" name="name" type="text"></p>
+                <p><strong>Last Name: </strong><input value="{{surname}}" name="surname" type="text"></p>
+                <p><strong>Username: </strong><input value="{{username}}" name="username" type="text"></p>
+                <p><strong>Email: </strong><input value="{{email}}" name="email" type="text"></p>
+                <br>
+                <p><strong>Address</strong></p>  
+                <p><strong>Street:</strong><input value="{{address.street}}" name="address.street" type="text"></p>  
+                <p><strong>Ext Num:</strong><input value="{{address.extNumber}}" name="address.extNumber" type="text"></p>  
+                <p><strong>Int Num:</strong><input value="{{address.intNumber}}" name="address.intNumber" type="text"></p> 
+                <p><strong>Town:</strong><input value="{{address.municipio}}" name="address.municipio" type="text"></p>  
+                <p><strong>State:</strong><input value="{{address.state}}" name="address.state" type="text"></p>  
+                <p><strong>Zip Code:</strong><input value="{{address.postalcode}}" name="address.postalcode" type="text"></p>
+                <br> 
+                <p><strong>Payment</strong></p>  
+                <p><strong>Card Number:</strong><input placeholder="**** **** **** {{payment.numberCardMasked}}" name="cardNum" type="string"></p> 
+                <p><strong>Exp Month:</strong><input value="{{payment.month}}" name="month" type="text"></p>
+                <p><strong>Exp Year:</strong><input value="{{payment.year}}" name="year" type="text"></p>
+                <p><strong>CVV:</strong><input value="{{payment.cvv}}" name="cvv" type="text"></p>
+                <p><input name="picURL" type="file" accept="image/*"></p>
+                <p><input type="submit" value="Update Profile"></p>
+            </form>
+        </section>
+    </section>
+</section>
