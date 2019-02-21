@@ -44,6 +44,25 @@ router.get("/seller/products/detail/:id", /*isLogged, isSeller,*/(req,res,next) 
   .catch(e => next(e))
 })
 
+//EDIT PRODUCT SELLER
+router.post('/seller/products/detail/:id/edit',isLogged,isSeller, (req, res,next)=>{
+  Product.findByIdAndUpdate(req.params.id, {$set: req.body}, {new: true})
+  res.render("seller/sellerProducts")
+})
+
+router.get("/seller/products/detail/:id/edit",isLogged,isSeller, (req,res,next) => {
+  let {id} = req.params
+  Product.findByIdAndUpdate(id)
+  .then(product => {
+    console.log(req.params)
+    res.render("seller/sellerEdit",product)
+  })
+  .catch(e => next(e))
+})
+
+
+
+
 //DELETE PRODUCT SELLER
 router.get("/seller/products/detail/:id/delete", /*isLogged, isSeller,*/ (req,res,next) => {
   
@@ -57,8 +76,8 @@ router.get("/seller/products/detail/:id/delete", /*isLogged, isSeller,*/ (req,re
 })
 
 //VIEW ALL PRODUCT SELLER
-router.get("/seller/products", /*isLogged, isSeller,*/ (req,res,next)=>{
-  Product.find()
+router.get("/seller/products", isLogged, isSeller, (req,res,next)=>{
+  Product.find({seller:req.user._id})
   .then(products=>{
     res.render("seller/sellerProducts",{products})
   })

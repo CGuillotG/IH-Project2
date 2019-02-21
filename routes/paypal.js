@@ -22,10 +22,10 @@ router.post("/buyer/paypal", isLogged, (req,res,next) => {
           "payment_method": "paypal"
         },
       "redirect_urls": {
-          "return_url": `http://localhost:3000/buyer/paypal/success/${req.user._id}/${req.body.id}/${req.body.buyerQuantity}`,
-          "cancel_url": "http://localhost:3000.com/buyer/paypal/cancel"
-          // "return_url": "https://community-ihproject2.herokuapp.com/buyer/paypal/success/${req.user._id}/${req.body.id}/${req.body.buyerQuantity}",
-          // "cancel_url": "https://community-ihproject2.herokuapp.com/buyer/paypal/cancel"
+          // "return_url": `http://localhost:3000/buyer/paypal/success/${req.user._id}/${req.body.id}/${req.body.buyerQuantity}`,
+          // "cancel_url": "http://localhost:3000.com/buyer/paypal/cancel"
+          "return_url": `https://community-ihproject2.herokuapp.com/buyer/paypal/success/${req.user._id}/${req.body.id}/${req.body.buyerQuantity}`,
+          "cancel_url": "https://community-ihproject2.herokuapp.com/buyer/paypal/cancel"
       },
       "transactions": [{
           "item_list": {
@@ -95,7 +95,14 @@ router.get("/buyer/paypal/success/:id/:prodid/:qty", /* isLogged,  */(req,res,ne
           .then(norder=>{
             console.log("Written!")
             // res.json(norder)
-            res.redirect("/buyer/orders")
+            let rendervars = {
+              title:product.title,
+              unitPrice:product.unitPrice,
+              quantity:qty,
+              totalPrice:qty*product.unitPrice,
+              productId:prodId
+            }
+            res.render('orders/newOrder', rendervars)
           })
         })
       })

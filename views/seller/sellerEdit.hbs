@@ -5,14 +5,14 @@
     </section>
 
     <section class="container-2-sellerEdit">
-        <form action="/seller/edit" method="POST">
-            <input type="text" name="title" placeholder="Title">
+        <form action="/seller/products/detail/{{_id}}/edit" method="POST">
+            <input type="text" name="title" placeholder={{title}} value={{title}}>
             <br>
-            <input type="text" name="description" placeholder="Description">
+            <input type="text" name="description" placeholder={{description}} value={{desctiption}}>
             <br>
-            <input type="text" name="details" placeholder="Details">
+            <input type="text" name="details" placeholder={{details}} value={{details}} >
             <br>
-            <input list="category" name="category" placeholder="Category">
+            <input list="category" name="category" placeholder={{category}} value={{category}}>
                 <datalist id="category">
                     <option value="Electrónica">
                     <option value="Celulares">
@@ -25,18 +25,19 @@
                     <option value="Seguros">                    
             </datalist>
             <br>
-            <input type="number" name="unitPrice" placeholder="Unit Price">
+            <input type="number" name="unitPrice" placeholder={{unitPrice}} value={{unitPrice}}>
             <br>
-            <input type="number" name="minQuantity" min="" placeholder="Min Quantity">
+            <input type="number" name="minQuantity" min="" placeholder={{minQuantity}} value={{minQuantity}}>
             <br>
-            <input type="number" name="maxQuantity" max="" placeholder="Max Quantity">
+            <input type="number" name="maxQuantity" max="" placeholder={{maxQuantity}} value={{maxQuantity}}>
             <br>
             <input type="image" name="picUrl">
             <br>
             <input type="submit" value="EDIT">
             <br>
-            <button><a href="/seller/add">ADD Product</a></button>
+            
             <button><a href="/seller/products">VIEW all Products</a></button>
+            <button><a href="/seller/">DASHBOARD</a></button>
         </form>
     </section>
 </section>
