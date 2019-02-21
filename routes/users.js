@@ -77,7 +77,7 @@ router.get("/seller/products/detail/:id/delete", isLogged, isSeller, (req,res,ne
 
 //VIEW ALL PRODUCT SELLER
 router.get("/seller/products", isLogged, isSeller, (req,res,next)=>{
-  Product.find()
+  Product.find({seller:req.user._id})
   .then(products=>{
     res.render("seller/sellerProducts",{products})
   })
