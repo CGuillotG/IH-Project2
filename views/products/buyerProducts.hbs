@@ -1,14 +1,14 @@
 <section class="containerforleftbar">
   {{>leftnavbuyer}}
-    <section class="container-buyer">
+    <section class="container-buyerProducts">
         <h2>ALL PRODUCTS</h2>
-        <section class="container-1-buyer">
+        <section class="container-1-buyerProducts">
             {{#each products}}
             <div>
                 <div>
-                    <p>Producto : <a href="/buyer/buyerproducts/detail/{{id}}">{{this.title}}</a></p>
-                    <p>Descripción : {{this.description}}</p>
-                    <p>Precio : {{this.unitPrice}} MXN</p>
+                    <p>Product : <a href="/buyer/buyerproducts/detail/{{id}}">{{this.title}}</a></p>
+                    <p>Description : {{this.description}}</p>
+                    <p>Price : {{this.unitPrice}} MXN</p>
                 </div>
                 <div>
                     <img src="#" alt="{{this.title}}">

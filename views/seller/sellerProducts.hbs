@@ -5,7 +5,7 @@
         <h2>Seller Products</h2>
         <section class="container-1-sellerProducts">
             {{#each products}}
-            <div>
+            <div href="/seller/products/detail/{{this._id}}">
                 <div>
                     <p><strong>Product : </strong><a href="/seller/products/detail/{{this._id}}">{{this.title}}</a></p>
                     <p>Description : {{this.category}}</p>
@@ -19,9 +19,11 @@
         </section>
 
         <section class="container-2-sellerProducts">
-            <button><a href="/seller/add">ADD</a></button>
-            <button><a href="/seller/">Profile</a></button>
-        </section>
+            <div>
+                <a href="/seller/add">ADD</a>
+            <a href="/seller/">DASHBOARD</a>
+            </div>
+            
     </section>
     
 </section>

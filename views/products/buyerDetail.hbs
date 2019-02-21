@@ -5,24 +5,24 @@
         <h2>Detail</h2>
         <section class="container-1-buyerDetail">  
             <p><strong>Product : </strong>{{title}}</p>
-            <p><strong>description : </strong>{{description}}</p>
+            <p><strong>Description : </strong>{{description}}</p>
             <p><strong>Detail : </strong>{{details}}</p>
-            <p><strong>category : </strong> {{category}}</p>
+            <p><strong>Category : </strong> {{category}}</p>
             <p><strong>Price : </strong> {{unitPrice}}</p>
             <img src="{{picURL}}" alt="{{this.title}}"/>
-
         </section>
 
         <section class="container-2-buyerDetail">
                 <form action="/buyer/paypal" method="POST"> 
                 <p><strong>Cuantas unidades quieres adquirir</strong></p>
-                <input type="number" min="0" name="buyerQuantity" placeholder="Unidades">
+                <input type="number" min="0" name="buyerQuantity" placeholder="Units">
+                <br>
+                <input type="submit" value="PAY">
+                
                 <br>
                 <input type="hidden" name="title" value="{{title}}">
-                <br>
                 <input type="hidden" name="unitPrice" value="{{unitPrice}}">
                 <input type="hidden" name="id" value="{{_id}}">
-                <input type="submit" value="Pagar">
                 </form>
         </section>
 
