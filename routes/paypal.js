@@ -22,8 +22,10 @@ router.post("/buyer/paypal", isLogged, (req,res,next) => {
           "payment_method": "paypal"
         },
       "redirect_urls": {
-          "return_url": "https://community-ihproject2.herokuapp.com/buyer/paypal/success",
-          "cancel_url": "https://community-ihproject2.herokuapp.com/buyer/paypal/cancel"
+          "return_url": `http://localhost:3000/buyer/paypal/success/${req.user._id}/${req.body.id}/${req.body.buyerQuantity}`,
+          "cancel_url": "http://localhost:3000.com/buyer/paypal/cancel"
+          // "return_url": "https://community-ihproject2.herokuapp.com/buyer/paypal/success",
+          // "cancel_url": "https://community-ihproject2.herokuapp.com/buyer/paypal/cancel"
       },
       "transactions": [{
           "item_list": {
@@ -59,50 +61,51 @@ router.post("/buyer/paypal", isLogged, (req,res,next) => {
 
   
   })
-    })
-  
-  
-  router.get("/buyer/paypal/success", isLogged, (req,res,next) => {
-    let payerId = req.query.PayerID
-    let paymentId = req.query.paymentId
-  
-    let execute_payment_json = {
-      "payer_id":payerId,
-      "transactions":[{
-        "amount":{
-          "currency":"MXN",
-          "total":payerId.total
-        }
-      }]
+})
 
-    }
-  
-    Paypal.payment.execute(paymentId,execute_payment_json,function(error,payment){
-      if(!error){
-        throw error
-      } else {
-        console.log("Prod Id - " + req.body.id)
-        console.log("Quantity - " + req.body.buyerQuantity)
-        console.log("User Id - " + req.user.id)
-        Product.findById(req.body.id).populate("order")
-        .then(product=>{
-          console.log("Written!")
-          product.order.buyers.push({
-            buyer:req.user.id,
-            buyerQuantity:req.body.buyerQuantity
-          })
-        })
 
-        res.redirect("/buyer/orders")
+router.get("/buyer/paypal/success/:id/:prodid/:qty", /* isLogged,  */(req,res,next) => {
+  let payerId = req.query.PayerID
+  let paymentId = req.query.paymentId
+  let userId = req.params.id
+  let prodId = req.params.prodid
+  let qty = req.params.qty
+  console.log('Params - ' + req.params)
+
+  let execute_payment_json = {
+    "payer_id":payerId,
+    "transactions":[{
+      "amount":{
+        "currency":"MXN",
+        "total":payerId.total
       }
-  
-    })
-  
+    }]
+
+  }
+
+  Paypal.payment.execute(paymentId,execute_payment_json,function(error,payment){
+    if(!error){
+      throw error
+    } else {      
+      Product.findById(req.body.id).populate("order")
+      .then(product=>{
+        console.log("Written!")
+        product.order.buyers.push({
+          buyer:req.user.id,
+          buyerQuantity:req.body.buyerQuantity
+        })
+      })
+
+      res.redirect("/buyer/orders")
+    }
+
   })
-  
-  router.get("/buyer/paypal/cancel",(req,res,next) => {
-    res.send("cancelled")
-  })
+
+})
+
+router.get("/buyer/paypal/cancel",(req,res,next) => {
+  res.send("cancelled")
+})
 
 
 
