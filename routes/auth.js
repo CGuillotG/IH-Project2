@@ -11,7 +11,8 @@ router.get("/profile/becomeSeller",isLogged,(req,res,next) => {
 
 router.get("/profile/becomeSeller/confirm",isLogged,(req,res,next) => {
   User.findByIdAndUpdate(req.user._id, {isSeller:true})
-  res.redirect('/profile/edit')
+  .then(res.redirect('/profile/edit'))
+  .catch(e=>next(e))  
 })
 
 router.get("/profile",isLogged,(req,res,next) => {
