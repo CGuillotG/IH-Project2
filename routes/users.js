@@ -8,12 +8,6 @@ let uploadCloud = require('../helpers/cloudinary')
 let {isLogged} = require('../helpers/middlewares')
 let {isSeller} = require('../helpers/middlewares')
 
-
-//BUYER
-router.get("/buyer", isLogged, (req,res,next) => {
-  res.render("buyer/buyer")
-})
-
 //SELLER
 router.get("/seller", isLogged, isSeller, (req,res,next) => {
   res.render("seller/seller")
