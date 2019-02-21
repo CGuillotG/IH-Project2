@@ -12,8 +12,6 @@ router.get("/buyer", isLogged, (req,res,next) => {
 })
 
 router.get("/buyer/orders", isLogged, (req,res,next) => {  
-  console.log(req.user._id)
-  // Product.find({ 'order.buyers.buyer' : {'$eq': req.user._id}})
   Product.aggregate([
     {
       '$lookup': {
@@ -29,8 +27,15 @@ router.get("/buyer/orders", isLogged, (req,res,next) => {
     }
   ])
   .then(prod=>{
+    // let orders = []
+    // let order = {}
+    // console.log(result)
+    // for (ord in prod.ordenes) {
+    //   console.log(prod.ordenes[ord].minQuantity)
+    // }
+    
     // res.json(prod)
-    res.render("orders/orders", prod)
+    res.render("orders/orders", {prod})
   })
 })
 

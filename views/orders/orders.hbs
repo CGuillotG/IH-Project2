@@ -1,6 +1,16 @@
 <section class="containerforleftbar">
     {{>leftnavbuyer}}
 
-    {{orders}}
-    
+    <h2>Orders</g2>
+
+    {{#each prod}}
+
+        <h4>{{title}}</h4>
+        <img src="{{picURL}}" alt="Product Pic">
+        <p><strong>Quantity: </strong>{{quantity}}</p>
+        <p><strong>Unit Price: </strong>${{unitPrice}}</p>
+        <a href="https://community-ihproject2.herokuapp.com/buyer/buyerproducts/detail/{{productId}}"><button>Product Page</button></a>
+
+    {{/each}}
+
 </section>
