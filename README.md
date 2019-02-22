@@ -39,9 +39,19 @@ Para acceder a community solo se requiere accesar al sitio web:
 https://community-ihproject2.herokuapp.com/
 ```
 
-Una vez ahí se debe crear un usuario que por default es comprdor.
+Una vez ahí se debe crear un usuario que por default es comprador.
 
 Con usuario de comprador se puede acceder al catálogo de productos.
+
+Para realizar compras se utiliza PayPal, sin embargo como el sitio aun está
+
+en construcción se esta utilizando en modo testing.
+
+Esto significa que PayPal les pedirá que creen una "cuenta nueva" en la cual
+
+todos los datos pueden ser falsos excepto el numero de tarjeta (ya que Paypal
+
+valida si es Mastercard o Visa).
 
 ## Autores
 
