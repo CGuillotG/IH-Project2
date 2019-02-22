@@ -3,20 +3,20 @@
 
     <section class="container-buyerDetail">
         <h2>Detail</h2>
-        <div class="container-2-buyerDetail">  
+        <section class="container-1-buyerDetail">  
             <p><strong>Product : </strong>{{title}}</p>
             <p><strong>Description : </strong>{{description}}</p>
             <p><strong>Detail : </strong>{{details}}</p>
             <p><strong>Category : </strong> {{category}}</p>
             <img src="{{picURL}}" alt="{{title}}"/>
-            <p><strong>Unit Price : </strong> {{unitPrice}}</p>
+            <p><strong>Unit Price : </strong> $ {{unitPrice}}</p>
 
             <div style="border:1px rgb(80, 215, 248) solid">
                 <p><strong>Current Order</strong></p>
                 <p><strong>Units bought : </strong> {{unitsBought}}&nbsp&nbsp&nbsp&nbsp&nbsp<strong>Total Buyers : </strong> {{totalBuyers}}</p>
             </div>
             
-        </div>
+        </section>
 
         <section class="container-2-buyerDetail">
                 <form action="/buyer/paypal" method="POST"> 
