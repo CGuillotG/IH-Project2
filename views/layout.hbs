@@ -15,15 +15,15 @@
 
 <body>
   <nav>
-    {{#if loggedUser}}
-      <a href="/logout">Logout</a>
-      <a id="navProf" href="/profile"><img src="{{loggedUserPic}}" alt="Profile Picture"></a>
-      <a href="/dash">Dashboard</a>
-    {{else}}
-      <a href="/signup">Sign up</a>
-      <a href="/login">Login</a>
-    {{/if}}
     <a href="/">Home</a>
+    {{#if loggedUser}}
+      <a href="/dash">Dashboard</a>
+      <a id="navProf" href="/profile"><img src="{{loggedUserPic}}" alt="Profile Picture"></a>
+      <a href="/logout">Logout</a>
+    {{else}}
+      <a href="/login">Login</a>
+      <a href="/signup">Sign up</a>
+    {{/if}}
   </nav>
 
   {{{body}}}
