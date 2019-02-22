@@ -2,9 +2,10 @@
 
 #### Ironhack Project 2 (Week 6)
 
-![npm](https://img.shields.io/npm/v/npm.svg?color=FB3B49)
-![GitHub repo size in bytes](https://img.shields.io/github/repo-size/CGuillotG/IH-Project2.svg)
 [![Environment](https://img.shields.io/badge/env-Ironhack-%2332c3ff.svg)](http://www.ironhack.com/en/courses/web-development-bootcamp)
+![npm](https://img.shields.io/npm/v/npm.svg?color=FB3B49)
+![GitHub last commit](https://img.shields.io/github/last-commit/CGuillotG/IH-Project2.svg)
+![GitHub repo size in bytes](https://img.shields.io/github/repo-size/CGuillotG/IH-Project2.svg)
 ![heroku](https://img.shields.io/badge/live-heroku-%2379589F.svg)
 
 
