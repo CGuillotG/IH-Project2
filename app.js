@@ -106,9 +106,5 @@ app.use("/",isLoggedUser,products)
 app.use("/",isLoggedUser,users)
 app.use("/",isLoggedUser,paypal)
 
-app.listen(process.env.PORT, () => {
-  console.log(`Listening on http://localhost:${process.env.PORT}`);
-});
-
 
 module.exports = app;
