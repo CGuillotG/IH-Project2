@@ -1,16 +1,29 @@
 <section class="containerforleftbar">
     {{>leftnavbuyer}}
-
-    <h2>Orders</g2>
-
-    {{#each prod}}
-
-        <h4>{{title}}</h4>
-        <img src="{{picURL}}" alt="Product Pic">
-        <p><strong>Quantity: </strong>{{quantity}}</p>
-        <p><strong>Unit Price: </strong>${{unitPrice}}</p>
-        <a href="https://community-ihproject2.herokuapp.com/buyer/buyerproducts/detail/{{productId}}"><button>Product Page</button></a>
-
-    {{/each}}
-
+    <section>
+        <section class="container-1-myOrders">
+            <h2>Orders</g2>
+        </section>
+         <section class="container-2-myOrders">
+            {{#each prod}}
+            <table>
+                <h4>{{title}}</h4>
+                <img src="{{picURL}}" alt="Product Pic">
+                <tbody>
+                    <tr>
+                        <td><strong>Product: </strong></td>
+                        <td>{{title}}</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Unit Price: </strong></td>
+                        <td>${{unitPrice}}</td>
+                    </tr>    
+                </tbody>      
+            </table>
+           <a class="container-newOrder-a waves-effect waves-light btn orange accent-4" href="https://community-ihproject2.herokuapp.com/buyer/buyerproducts/detail/{{productId}}"><i class="material-icons left">store</i>PRODUCT PAGE</a>
+        {{/each}}
+    </section>
+    </section>
+    
 </section>
+

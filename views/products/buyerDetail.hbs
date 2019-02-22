@@ -4,26 +4,36 @@
     <section class="container-buyerDetail">
         <h2>Detail</h2>
         <section class="container-1-buyerDetail">  
-            <p><strong>Product : </strong>{{title}}</p>
-            <p><strong>Description : </strong>{{description}}</p>
-            <p><strong>Detail : </strong>{{details}}</p>
-            <p><strong>Category : </strong> {{category}}</p>
-            <p><strong>Price : </strong> {{unitPrice}}</p>
-            <img src="{{picURL}}" alt="{{this.title}}"/>
+             <div class="container-1-buyerDetail-a row">
+                    <div class="container-1-buyerDetail-a col s8 offset-s2">
+                        <div class="card">
+                            <div class="card-image">
+                                <img src="{{this.picURL}}" alt="{{this.title}}">
+                            </div>
+                            <div class="card-content">
+                                <span class="card-title"><a class="detail">{{this.title}}</a></span>
+                                <p><strong>Description : </strong>{{description}}</p>
+                                <p><strong>Detail : </strong>{{details}}</p>
+                                <p><strong>Category : </strong> {{category}}</p>
+                                <p><strong>Price : </strong> {{unitPrice}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
         </section>
 
         <section class="container-2-buyerDetail">
-                <form action="/buyer/paypal" method="POST"> 
+            <form action="/buyer/paypal" method="POST"> 
                 <p><strong>Cuantas unidades quieres adquirir</strong></p>
                 <input type="number" min="0" name="buyerQuantity" placeholder="Units">
                 <br>
-                <input type="submit" value="PAY">
-                
-                <br>
+                <div class="waves-effect waves-light btn orange accent-4">
+                    <input class="orange accent-4" type="submit" value="PAY">
+                </div>
                 <input type="hidden" name="title" value="{{title}}">
                 <input type="hidden" name="unitPrice" value="{{unitPrice}}">
                 <input type="hidden" name="id" value="{{_id}}">
-                </form>
+            </form>
         </section>
 
     </section>

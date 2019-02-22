@@ -1,22 +1,39 @@
 <section class="containerforleftbar">
-  {{>leftnavbuyer}}
+    {{>leftnavbuyer}}
     <section class="container-buyerProducts">
-        <h2>ALL PRODUCTS</h2>
-        <section class="container-1-buyerProducts">
-            {{#each products}}
-            <div>
-                <div>
-                    <p>Product : <a href="/buyer/buyerproducts/detail/{{id}}">{{this.title}}</a></p>
-                    <p>Description : {{this.description}}</p>
-                    <p>Price : {{this.unitPrice}} MXN</p>
+            <h2>ALL PRODUCTS</h2>
+            <section class="container-1-buyerProducts">
+                <div class="look">
+                {{#each products}}
+                    <div class="container-1-buyerProducts-a col s12 m6 l3">
+                        <div class="card">
+                            <div class="card-image">
+                                <img src="{{this.picURL}}" alt="{{this.title}}">
+                                <a class="btn-floating halfway-fab waves-effect waves-light orange accent-4" href="/buyer/buyerproducts/detail/{{id}}"><i class="material-icons">add</i></a>
+                            </div>
+                            <div class="card-content">
+                                <span class="card-title"><a href="/buyer/buyerproducts/detail/{{id}}">{{this.title}}</a></span>
+                                <p>Description : {{this.category}}</p>
+                                <p>Price : {{this.unitPrice}} MXN</p>
+                            </div>
+                        </div>
+                    </div>
+                
+                {{/each}}
                 </div>
+            </section>
+
+            <section class="container-2-buyerProducts">
                 <div>
-                    <img src="{{this.picURL}}" alt="{{this.title}}">
+                    <div class="container-2-buyerProducts-b">
+                        <a class="waves-effect waves-light btn orange accent-4" href="/seller/add"><i class="material-icons left">add</i>ADD PRODUCT</a>
+                    </div>
+                    <div class="container-2-buyerProducts-b">
+                        <a class="waves-effect waves-light btn orange accent-4" href="/buyer"><i class="material-icons left">view_comfy</i>DASHBOARD</a>
+                    </div>  
                 </div>
-            </div>
-            {{/each}}
+                
         </section>
+        
     </section>
 </section>
-
-

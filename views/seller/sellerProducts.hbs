@@ -4,24 +4,34 @@
     <section class="container-sellerProducts">
         <h2>Seller Products</h2>
         <section class="container-1-sellerProducts">
+            <div class="row">
             {{#each products}}
-            <div>
-                <div>
-                    <p><strong>Product : </strong><a href="/seller/products/detail/{{this._id}}">{{this.title}}</a></p>
-                    <p>Description : {{this.category}}</p>
-                    <p>Price : {{this.unitPrice}} MXN</p>
+                <div class="container-1-sellerProducts-a col s12 m6 l3">
+                    <div class="card">
+                        <div class="card-image">
+                            <img src={{this.picURL}} alt="{{this.title}}">
+                            <a class="btn-floating halfway-fab waves-effect waves-light orange accent-4" href="/seller/products/detail/{{this._id}}"><i class="material-icons">visibility</i></a>
+                        </div>
+                        <div class="card-content">
+                            <span class="card-title"><a href="/seller/products/detail/{{this._id}}">{{this.title}}</a></span>
+                            <p>Description : {{this.category}}</p>
+                            <p>Price : {{this.unitPrice}} MXN</p>
+                        </div>
+                    </div>
                 </div>
-                <div>
-                    <img src={{this.picURL}} alt="{{this.title}}">
-                </div>
-            </div>
+            
             {{/each}}
+            </div>
         </section>
 
         <section class="container-2-sellerProducts">
             <div>
-                <a href="/seller/add">ADD</a>
-            <a href="/seller/">DASHBOARD</a>
+                <div class="container-2-sellerAdd-b">
+                    <a class="waves-effect waves-light btn orange accent-4" href="/seller/add"><i class="material-icons left">add</i>ADD PRODUCT</a>
+                </div>
+                <div class="container-2-sellerAdd-b">
+                    <a class="waves-effect waves-light btn orange accent-4" href="/seller"><i class="material-icons left">view_comfy</i>DASHBOARD</a>
+                </div>  
             </div>
             
     </section>
