@@ -2,10 +2,10 @@
 
 #### Ironhack Project 2 (Week 6)
 
-![npm](https://img.shields.io/npm/v/npm.svg?color=FB3B49)
-![GitHub last commit](https://img.shields.io/github/last-commit/CGuillotG/IH-Project2.svg)
-![GitHub repo size in bytes](https://img.shields.io/github/repo-size/CGuillotG/IH-Project2.svg)
-![heroku](https://img.shields.io/badge/live-heroku-%2379589F.svg)
+[![npm](https://img.shields.io/npm/v/npm.svg?color=FB3B49)](https://www.npmjs.com/)
+[![GitHub last commit](https://img.shields.io/github/last-commit/CGuillotG/IH-Project2.svg)](https://github.com/CGuillotG/IH-Project2)
+[![GitHub repo size in bytes](https://img.shields.io/github/repo-size/CGuillotG/IH-Project2.svg)](https://github.com/CGuillotG/IH-Project2)
+[![heroku](https://img.shields.io/badge/live-heroku-%2379589F.svg)](https://community-ihproject2.herokuapp.com/)
 [![Ironhack project](https://img.shields.io/badge/project-Ironhack-32c3ff.svg)](https://projects.ironhack.com.mx/projects/5c4b87d818a0f50017f374a5/2)
 
 
