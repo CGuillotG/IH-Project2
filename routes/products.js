@@ -18,22 +18,35 @@ router.get("/buyer/orders", isLogged, (req,res,next) => {
         'from': 'orders', 
         'localField': 'order', 
         'foreignField': '_id', 
-        'as': 'ordenes'
+        'as': 'order'
+      }
+    }, {
+      '$lookup': {
+        'from': 'users', 
+        'localField': 'seller', 
+        'foreignField': '_id', 
+        'as': 'seller'
       }
     }, {
       '$match': {
-        'ordenes.buyers.buyer': mongoose.Types.ObjectId(req.user._id)
+        'order.buyers.buyer': mongoose.Types.ObjectId(req.user._id)
       }
     }
   ])
   .then(prod=>{
-    // let orders = []
-    // let order = {}
-    // console.log(result)
-    // for (ord in prod.ordenes) {
-    //   console.log(prod.ordenes[ord].minQuantity)
-    // }
-    
+    for (p in prod){
+      let buyers = {}
+      for (b in prod[p].order[0].buyers) {
+          if(toString(prod[p].order[0].buyers[b].buyer) === toString(req.user._id)){
+            buyers = {
+              _id: prod[p].order[0].buyers[b]._id,
+              totalPrice: prod[p].order[0].buyers[b].buyerQuantity*prod[p].unitPrice,
+              buyerQuantity: prod[p].order[0].buyers[b].buyerQuantity,
+            }
+          }
+      }
+      prod[p].order[0].buyers = {...buyers}
+    }
     // res.json(prod)
     res.render("orders/orders", {prod})
   })
@@ -49,9 +62,51 @@ router.get("/buyer/buyerproducts",(req,res,next) => {
 
 router.get("/buyer/buyerproducts/detail/:id", (req,res,next) =>{
   let {id}=req.params
-  Product.findById(id)
+  // Product.findById(id)
+  Product.aggregate(
+    [
+      {
+        '$lookup': {
+          'from': 'orders', 
+          'localField': 'order', 
+          'foreignField': '_id', 
+          'as': 'order'
+        }
+      }, {
+        '$lookup': {
+          'from': 'users', 
+          'localField': 'seller', 
+          'foreignField': '_id', 
+          'as': 'seller'
+        }
+      }, {
+        '$match': {
+          '_id': mongoose.Types.ObjectId(id)
+        }
+      }
+    ]
+  )
   .then(product=>{
-    res.render("products/buyerDetail",product)
+    let unitsBought = 0
+    let totalBuyers = 0
+    let prod = {...product[0]}
+    for (b in prod.order[0].buyers) {
+      unitsBought += prod.order[0].buyers[b].buyerQuantity
+      totalBuyers++
+    }
+    if(prod.discountTable) {
+      let currentDiscount = 0
+      for (ind in prod.discountTable) {
+        if(unitsBought >= prod.discountTable[ind][0]){
+          currentDiscount = prod.discountTable[ind][1]
+        }
+      }
+      prod.currentDiscount = currentDiscount
+      prod.currentUnitPrice = prod.unitPrice*(100-currentDiscount)/100
+    }
+    prod.unitsBought = unitsBought
+    prod.totalBuyers = totalBuyers
+    res.render("products/buyerDetail",prod)
   })
   .catch(e => next(e))
 })

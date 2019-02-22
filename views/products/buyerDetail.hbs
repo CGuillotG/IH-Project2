@@ -16,6 +16,30 @@
                                 <p><strong>Detail : </strong>{{details}}</p>
                                 <p><strong>Category : </strong> {{category}}</p>
                                 <p><strong>Price : </strong> {{unitPrice}}</p>
+                                <p><strong>Unit Price : </strong> $ {{unitPrice}}</p>
+                                {{#if discountTable}}
+                                    <table>
+                                        <tr>
+                                            <th>Units</th>
+                                            <th>Discount</th>
+                                        </tr>
+                                        {{#each discountTable as |row|}}
+                                        <tr>
+                                            <td>> {{row.[0]}}</td>
+                                            <td>{{row.[1]}}%</td>
+                                        </tr>
+                                        {{/each}}
+                                    </table>
+                                {{/if}}
+                                <div style="border:1px rgb(80, 215, 248) solid">
+                                    <p><strong>Current Order</strong></p>
+                                    <p><strong>Units bought : </strong> {{unitsBought}}&nbsp&nbsp&nbsp&nbsp&nbsp
+                                    <strong>Total Buyers : </strong> {{totalBuyers}}</p>
+                                    {{#if discountTable}}
+                                        <p><strong>Current Discount : </strong> {{currentDiscount}} %</p>
+                                        <p><strong>Current Price : </strong> $ {{currentUnitPrice}}</p>
+                                    {{/if}}
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -23,18 +47,22 @@
         </section>
 
         <section class="container-2-buyerDetail">
-            <form action="/buyer/paypal" method="POST"> 
-                <p><strong>Cuantas unidades quieres adquirir</strong></p>
+            <form action="/buyer/paypal" method="POST">
+                <p><strong>Cuantas unidades quieres adquirir?</strong></p>
                 <input type="number" min="0" name="buyerQuantity" placeholder="Units">
                 <br>
-                <div class="waves-effect waves-light btn orange accent-4">
-                    <input class="orange accent-4" type="submit" value="PAY">
-                </div>
-                <input type="hidden" name="title" value="{{title}}">
-                <input type="hidden" name="unitPrice" value="{{unitPrice}}">
+                <input type="submit" value="PAY">
+                <br>
+                {{#if discountTable}}
+                    <input type="hidden" name="title" value="{{title}} (with {{currentDiscount}}% discount">
+                    <input id="unitPrice" type="hidden" name="unitPrice" value="{{currentUnitPrice}}">
+                {{else}}
+                    <input type="hidden" name="title" value="{{title}}">
+                    <input id="unitPrice" type="hidden" name="unitPrice" value="{{UnitPrice}}">
+                {{/if }}
                 <input type="hidden" name="id" value="{{_id}}">
             </form>
         </section>
-
     </section>
-</section>
+</section>        
+      
