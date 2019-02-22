@@ -2,7 +2,7 @@
 [![NPM Version][npm-image]][npm-url]
 
 Ironhack Project 2 (Week 6)
-
+![](header.png)
 
 
 ## Getting Started
