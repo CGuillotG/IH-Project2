@@ -2,22 +2,25 @@
     {{>leftnavbuyer}}
 
     <section class="container-buyerDetail">
-        <h2>Detail</h2>
-        <section class="container-1-buyerDetail">  
-             <div class="container-1-buyerDetail-a row">
-                    <div class="container-1-buyerDetail-a col s8 offset-s2">
+        
+        <section class="container-1-buyerDetail"> 
+            <h2 style="color: #ff6d00; margin-top: 0px">Detail</h2>
+                    <div class="col s8 offset-s2">
                         <div class="card">
                             <div class="card-image">
                                 <img src="{{this.picURL}}" alt="{{this.title}}">
                             </div>
                             <div class="card-content">
-                                <span class="card-title"><a class="detail">{{this.title}}</a></span>
-                                <p><strong>Description : </strong>{{description}}</p>
-                                <p><strong>Detail : </strong>{{details}}</p>
-                                <p><strong>Category : </strong> {{category}}</p>
-                                <p><strong>Price : </strong> {{unitPrice}}</p>
-                                <p><strong>Unit Price : </strong> $ {{unitPrice}}</p>
-                                {{#if discountTable}}
+                                <div>
+                                    <span class="card-title"><a class="detail ">{{this.title}}</a></span>
+                                    <p><strong>Description : </strong>{{description}}</p>
+                                    <p><strong>Detail : </strong>{{details}}</p>
+                                    <p><strong>Category : </strong> {{category}}</p>
+                                    <p><strong>Price : </strong> {{unitPrice}}</p>
+                                    <p><strong>Unit Price : </strong> $ {{unitPrice}}</p>
+                                </div>
+                                <div>
+                                    {{#if discountTable}}
                                     <table>
                                         <tr>
                                             <th>Units</th>
@@ -30,8 +33,10 @@
                                         </tr>
                                         {{/each}}
                                     </table>
-                                {{/if}}
-                                <div style="border:1px rgb(80, 215, 248) solid">
+                                    {{/if}}
+                                </div>
+                                
+                                <div style="border:1px #ff6d00 solid">
                                     <p><strong>Current Order</strong></p>
                                     <p><strong>Units bought : </strong> {{unitsBought}}&nbsp&nbsp&nbsp&nbsp&nbsp
                                     <strong>Total Buyers : </strong> {{totalBuyers}}</p>
@@ -43,7 +48,6 @@
                             </div>
                         </div>
                     </div>
-                </div>
         </section>
 
         <section class="container-2-buyerDetail">
@@ -51,7 +55,7 @@
                 <p><strong>Cuantas unidades quieres adquirir?</strong></p>
                 <input type="number" min="0" name="buyerQuantity" placeholder="Units">
                 <br>
-                <input type="submit" value="PAY">
+                <a class="waves-effect waves-light btn orange accent-4"><input type="submit" value="PAY"><i class="material-icons left">attach_money</i></a>
                 <br>
                 {{#if discountTable}}
                     <input type="hidden" name="title" value="{{title}} (with {{currentDiscount}}% discount">
@@ -64,5 +68,6 @@
             </form>
         </section>
     </section>
-</section>        
-      
+</section>    
+
+  
