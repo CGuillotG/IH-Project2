@@ -48,11 +48,11 @@ Con usuario de comprador se puede acceder al catálogo de productos.
 * **Carlos Ortíz** - *Ironhacker* - [CarlosOrtizPacheco](https://github.com/carlosortizpacheco)
 * **Carlos Guillot** - *Ironhacker* - [CGuillotG](https://github.com/CGuillotG)
 
-## Acknowledgments
+## Reconocimientos
 
-* Hat tip to anyone whose code was used
-* Inspiration
-* etc
+* IronHack
+* BlisS y TAs
+* café, mucho café
 
 <!-- Markdown link & img dfn's -->
 [npm-image]: https://img.shields.io/npm/v/datadog-metrics.svg?style=flat-square
