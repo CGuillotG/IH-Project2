@@ -15,6 +15,7 @@ nav{
     
 }
 
+
 nav a{
     padding:15px;
     text-decoration: none;
@@ -102,51 +103,40 @@ footer {
 
 /*INDEX*/
 .container-index{
-    width: 80vw;
-    height: 700px;
+    background-image: url("https://res.cloudinary.com/cgui1107/image/upload/v1550791350/Community-IHProject2/Cover.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    width: 90vw;
+    margin:0 5vh;
+    height: 85vh;
     display: flex;
     flex-direction: row;
-    
+    color:#ff6d00;
+    font-weight: bold;
+    opacity: 0.85;
+    border-radius: 10px;
 }
 
 .container-1-index{
-    font-size: 2vw;
+    text-align: center;
+    margin: 10% 5% 0% 5%;
+}
+
+.container-1-index h2{
+    font-size: 10vw;
+}
+
+.container-1-index{
+    width: 100%;
+    height: 65vh;
 }
 
 .container-1-index-b{
-  
+    margin-top: 10%;
+    font-size: 4vw;
 }
-
- /* .container-index{
-    margin-top:10px;
-    width: 70vw;
- }
-
- .container-index section{
-    margin: 2%;
- }
-
- .container-1-index{
-    background: url("https://res.cloudinary.com/cgui1107/image/upload/v1550791350/Community-IHProject2/Cover.png") no-repeat;
-    background-size: 100%;
- }
-
- .container-1-index-a{
-    margin-top:8%;
-    margin-left: 25%;
-    font-size: 6vw;
- }
-
- .container-1-index-b{
-    margin-top:0%;
-    margin-left: 5%;
-    font-size: 2vw;
-    text-align: left;
- }
-
- .container-2-index-b{
-     width: 500px;
- } */
+ 
 /*INDEX*/
 
 
@@ -335,7 +325,6 @@ footer {
     font-weight: bold;
 }
 
-.
 .container-2-profile button a:hover{
     font-weight: bold;
     font-size: 15px;
@@ -587,7 +576,7 @@ footer {
 .container-2-sellerEdit button{
     font-family: "karla";
     background-color: #ffe1cb;
-    border: 2px #ff6d00solid;
+    border: 2px #ff6d00 solid;
     margin-top: 1%;
     width: 50%;
 }
@@ -730,9 +719,7 @@ footer {
 /*BUYERDETAIL*/
 .container-buyerDetail{
     display: flex;
-    flex-direction: column;
-    background-color: #ffe1cb;
-    border:2px #ff6d00 solid;
+    flex-direction: row;
     margin-top: 2%;
     margin-left: 5%;
     margin-right: 50%;
@@ -753,8 +740,9 @@ footer {
 
 .container-2-buyerDetail{
     font-family: "karla";
-    text-align: center;
     margin-bottom: 5%;
+    margin-left: 5%;
+    width: 500px;
 }
 
 .container-2-buyerDetail input:hover{
@@ -827,13 +815,18 @@ table{
 
 
 /*MYORDERS*/
-
 .container-1-myOrders h2{
     color:#ff6d00;
+    margin-top: 1%;
 }
 
 .container-1-myOrders{
     margin-left: 10%;
+    margin-top: 0px;
+}
+
+.container-myOrders{
+    margin-top:0%;
 }
 
 .container-2-myOrders{
