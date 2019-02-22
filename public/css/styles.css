@@ -47,10 +47,20 @@ footer {
  }
 /*LAYOUT*/
 
+/*BECOME A SELLER*/
+.becomeSeller{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 90vw;
+}
+/*BECOME A SELLER*/
+
 /*LEFTNAVBAR*/
 .containerforleftbar {
     display:flex;
-    height: 820px;
+    height: calc(100vh - 100px);
 }
 
 .leftnavbar{
@@ -58,6 +68,7 @@ footer {
     font-weight: lighter;
     border-right: 2px #ff6d00 solid;
     width:10vw;
+    min-width: 10vw;
     display: flex;
     flex-flow: column;
     justify-content: flex-start;
