@@ -1,5 +1,9 @@
 # COMMUNITY
-[![NPM Version][npm-image]][npm-url]
+![npm](https://img.shields.io/npm/v/npm.svg?color=FB3B49)
+![GitHub repo size in bytes](https://img.shields.io/github/repo-size/CGuillotG/IH-Project2.svg)
+[![Environment](https://img.shields.io/badge/env-Ironhack-%2332c3ff.svg)](http://www.ironhack.com/en/courses/web-development-bootcamp)
+![heroku](https://img.shields.io/badge/live-heroku-%2379589F.svg)
+
 
 Ironhack Project 2 (Week 6)
 ![](header.png)
@@ -89,3 +93,10 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 * Inspiration
 * etc
 
+<!-- Markdown link & img dfn's -->
+[npm-image]: https://img.shields.io/npm/v/datadog-metrics.svg?style=flat-square
+[npm-url]: https://npmjs.org/package/datadog-metrics
+[npm-downloads]: https://img.shields.io/npm/dm/datadog-metrics.svg?style=flat-square
+[travis-image]: https://img.shields.io/travis/dbader/node-datadog-metrics/master.svg?style=flat-square
+[travis-url]: https://travis-ci.org/dbader/node-datadog-metrics
+[wiki]: https://github.com/yourname/yourproject/wiki
