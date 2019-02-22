@@ -62,9 +62,41 @@ router.get("/buyer/buyerproducts",(req,res,next) => {
 
 router.get("/buyer/buyerproducts/detail/:id", (req,res,next) =>{
   let {id}=req.params
-  Product.findById(id)
+  // Product.findById(id)
+  Product.aggregate(
+    [
+      {
+        '$lookup': {
+          'from': 'orders', 
+          'localField': 'order', 
+          'foreignField': '_id', 
+          'as': 'order'
+        }
+      }, {
+        '$lookup': {
+          'from': 'users', 
+          'localField': 'seller', 
+          'foreignField': '_id', 
+          'as': 'seller'
+        }
+      }, {
+        '$match': {
+          '_id': mongoose.Types.ObjectId(id)
+        }
+      }
+    ]
+  )
   .then(product=>{
-    res.render("products/buyerDetail",product)
+    let unitsBought = 0
+    let totalBuyers = 0
+    let prod = {...product[0]}
+    for (b in prod.order[0].buyers) {
+      unitsBought += prod.order[0].buyers[b].buyerQuantity
+      totalBuyers++
+    }
+    prod.unitsBought = unitsBought
+    prod.totalBuyers = totalBuyers
+    res.render("products/buyerDetail",prod)
   })
   .catch(e => next(e))
 })

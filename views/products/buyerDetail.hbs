@@ -3,25 +3,30 @@
 
     <section class="container-buyerDetail">
         <h2>Detail</h2>
-        <section class="container-1-buyerDetail">  
+        <div class="container-2-buyerDetail">  
             <p><strong>Product : </strong>{{title}}</p>
             <p><strong>Description : </strong>{{description}}</p>
             <p><strong>Detail : </strong>{{details}}</p>
             <p><strong>Category : </strong> {{category}}</p>
-            <p><strong>Price : </strong> {{unitPrice}}</p>
-            <img src="{{picURL}}" alt="{{this.title}}"/>
-        </section>
+            <img src="{{picURL}}" alt="{{title}}"/>
+            <p><strong>Unit Price : </strong> {{unitPrice}}</p>
+
+            <div style="border:1px rgb(80, 215, 248) solid">
+                <p><strong>Current Order</strong></p>
+                <p><strong>Units bought : </strong> {{unitsBought}}&nbsp&nbsp&nbsp&nbsp&nbsp<strong>Total Buyers : </strong> {{totalBuyers}}</p>
+            </div>
+            
+        </div>
 
         <section class="container-2-buyerDetail">
                 <form action="/buyer/paypal" method="POST"> 
-                <p><strong>Cuantas unidades quieres adquirir</strong></p>
+                <p><strong>Cuantas unidades quieres adquirir?</strong></p>
                 <input type="number" min="0" name="buyerQuantity" placeholder="Units">
                 <br>
-                <input type="submit" value="PAY">
-                
+                <input type="submit" value="PAY">                
                 <br>
-                <input type="hidden" name="title" value="{{title}}">
-                <input type="hidden" name="unitPrice" value="{{unitPrice}}">
+                <input type="hidden" name="title" value="{{title}}">  {{!-- necesitamos este campo?? --}}
+                <input id="unitPrice" type="hidden" name="unitPrice" value="{{unitPrice}}">
                 <input type="hidden" name="id" value="{{_id}}">
                 </form>
         </section>
