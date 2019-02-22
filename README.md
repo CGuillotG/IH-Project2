@@ -1,6 +1,7 @@
 # COMMUNITY
 
-Ironhack Project 2 (Week 6)
+#### Ironhack Project 2 (Week 6)
+
 ![npm](https://img.shields.io/npm/v/npm.svg?color=FB3B49)
 ![GitHub repo size in bytes](https://img.shields.io/github/repo-size/CGuillotG/IH-Project2.svg)
 [![Environment](https://img.shields.io/badge/env-Ironhack-%2332c3ff.svg)](http://www.ironhack.com/en/courses/web-development-bootcamp)
