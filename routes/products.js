@@ -94,6 +94,16 @@ router.get("/buyer/buyerproducts/detail/:id", (req,res,next) =>{
       unitsBought += prod.order[0].buyers[b].buyerQuantity
       totalBuyers++
     }
+    if(prod.discountTable) {
+      let currentDiscount = 0
+      for (ind in prod.discountTable) {
+        if(unitsBought >= prod.discountTable[ind][0]){
+          currentDiscount = prod.discountTable[ind][1]
+        }
+      }
+      prod.currentDiscount = currentDiscount
+      prod.currentUnitPrice = prod.unitPrice*(100-currentDiscount)/100
+    }
     prod.unitsBought = unitsBought
     prod.totalBuyers = totalBuyers
     res.render("products/buyerDetail",prod)

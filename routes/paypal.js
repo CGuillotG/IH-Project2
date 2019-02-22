@@ -13,9 +13,9 @@ router.get("/buyer/paypal", isLogged, (req, res) => {
 })
 
 router.post("/buyer/paypal", isLogged, (req,res,next) => {
-  Product.findById(req.body.id)
+  Product.findById(req.body.id) //Probably an unnecesary call
     .then(product => {
-      let total = (product.unitPrice*req.body.buyerQuantity)
+      let total = (req.body.unitPrice*req.body.buyerQuantity)
       let create_payment_json = {
         "intent": "sale",
         "payer": {
@@ -30,9 +30,9 @@ router.post("/buyer/paypal", isLogged, (req,res,next) => {
       "transactions": [{
           "item_list": {
               "items": [{
-                  "name": product.title,
+                  "name": req.body.title,
                   "sku": "item",
-                  "price": product.unitPrice,
+                  "price": req.body.unitPrice,
                   "currency": "MXN",
                   "quantity": req.body.buyerQuantity
               }]

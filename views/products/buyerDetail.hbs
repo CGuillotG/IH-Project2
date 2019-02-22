@@ -3,32 +3,49 @@
 
     <section class="container-buyerDetail">
         <h2>Detail</h2>
-        <section class="container-1-buyerDetail">  
+        <section class="container-1-buyerDetail">
             <p><strong>Product : </strong>{{title}}</p>
             <p><strong>Description : </strong>{{description}}</p>
             <p><strong>Detail : </strong>{{details}}</p>
             <p><strong>Category : </strong> {{category}}</p>
-            <img src="{{picURL}}" alt="{{title}}"/>
+            <img src="{{picURL}}" alt="{{title}}" />
             <p><strong>Unit Price : </strong> $ {{unitPrice}}</p>
+            {{#if discountTable}}
+            <table>
+                <tr>
+                    <th>Units</th>
+                    <th>Discount</th>
+                </tr>
+                {{#each discountTable as |row|}}
+                <tr>
+                    <td>> {{row.[0]}}</td>
+                    <td>{{row.[1]}}%</td>
+                </tr>
+                {{/each}}
+            </table>
+            {{/if}}
 
             <div style="border:1px rgb(80, 215, 248) solid">
                 <p><strong>Current Order</strong></p>
-                <p><strong>Units bought : </strong> {{unitsBought}}&nbsp&nbsp&nbsp&nbsp&nbsp<strong>Total Buyers : </strong> {{totalBuyers}}</p>
+                <p><strong>Units bought : </strong> {{unitsBought}}&nbsp&nbsp&nbsp&nbsp&nbsp
+                <strong>Total Buyers : </strong> {{totalBuyers}}</p>
+                <p><strong>Current Discount : </strong> {{currentDiscount}} %</p>
+                <p><strong>Current Price : </strong> $ {{currentUnitPrice}}</p>
             </div>
-            
+
         </section>
 
         <section class="container-2-buyerDetail">
-                <form action="/buyer/paypal" method="POST"> 
+            <form action="/buyer/paypal" method="POST">
                 <p><strong>Cuantas unidades quieres adquirir?</strong></p>
                 <input type="number" min="0" name="buyerQuantity" placeholder="Units">
                 <br>
-                <input type="submit" value="PAY">                
+                <input type="submit" value="PAY">
                 <br>
-                <input type="hidden" name="title" value="{{title}}">  {{!-- necesitamos este campo?? --}}
-                <input id="unitPrice" type="hidden" name="unitPrice" value="{{unitPrice}}">
+                <input type="hidden" name="title" value="{{title}} (with {{currentDiscount}}% discount">
+                <input id="unitPrice" type="hidden" name="unitPrice" value="{{currentUnitPrice}}">
                 <input type="hidden" name="id" value="{{_id}}">
-                </form>
+            </form>
         </section>
 
     </section>
