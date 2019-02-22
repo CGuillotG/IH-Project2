@@ -11,26 +11,28 @@
             <img src="{{picURL}}" alt="{{title}}" />
             <p><strong>Unit Price : </strong> $ {{unitPrice}}</p>
             {{#if discountTable}}
-            <table>
-                <tr>
-                    <th>Units</th>
-                    <th>Discount</th>
-                </tr>
-                {{#each discountTable as |row|}}
-                <tr>
-                    <td>> {{row.[0]}}</td>
-                    <td>{{row.[1]}}%</td>
-                </tr>
-                {{/each}}
-            </table>
+                <table>
+                    <tr>
+                        <th>Units</th>
+                        <th>Discount</th>
+                    </tr>
+                    {{#each discountTable as |row|}}
+                    <tr>
+                        <td>> {{row.[0]}}</td>
+                        <td>{{row.[1]}}%</td>
+                    </tr>
+                    {{/each}}
+                </table>
             {{/if}}
 
             <div style="border:1px rgb(80, 215, 248) solid">
                 <p><strong>Current Order</strong></p>
                 <p><strong>Units bought : </strong> {{unitsBought}}&nbsp&nbsp&nbsp&nbsp&nbsp
                 <strong>Total Buyers : </strong> {{totalBuyers}}</p>
-                <p><strong>Current Discount : </strong> {{currentDiscount}} %</p>
-                <p><strong>Current Price : </strong> $ {{currentUnitPrice}}</p>
+                {{#if discountTable}}
+                    <p><strong>Current Discount : </strong> {{currentDiscount}} %</p>
+                    <p><strong>Current Price : </strong> $ {{currentUnitPrice}}</p>
+                {{/if}}
             </div>
 
         </section>
@@ -42,8 +44,13 @@
                 <br>
                 <input type="submit" value="PAY">
                 <br>
-                <input type="hidden" name="title" value="{{title}} (with {{currentDiscount}}% discount">
-                <input id="unitPrice" type="hidden" name="unitPrice" value="{{currentUnitPrice}}">
+                {{#if discountTable}}
+                    <input type="hidden" name="title" value="{{title}} (with {{currentDiscount}}% discount">
+                    <input id="unitPrice" type="hidden" name="unitPrice" value="{{currentUnitPrice}}">
+                {{else}}
+                    <input type="hidden" name="title" value="{{title}}">
+                    <input id="unitPrice" type="hidden" name="unitPrice" value="{{UnitPrice}}">
+                {{/if }}
                 <input type="hidden" name="id" value="{{_id}}">
             </form>
         </section>
